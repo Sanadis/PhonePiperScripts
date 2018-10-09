@@ -25,6 +25,16 @@
     "points" : [ ],
     "enabled" : false
   }, {
+    "name" : "menu_caiross_level-b10-locked",
+    "screenId" : "menu_caiross_level-b10-locked",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_caiross_level-b10-unlocked",
+    "screenId" : "menu_caiross_level-b10-unlocked",
+    "points" : [ ],
+    "enabled" : false
+  }, {
     "name" : "menu_home",
     "screenId" : "menu_home",
     "points" : [ ],
@@ -95,6 +105,54 @@
   }, {
     "name" : "menu_battle-caiross",
     "componentId" : "menu_battle-caiross",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_caiross_dungeon-select",
+    "componentId" : "menu_caiross_dungeon-select",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_caiross_level-index-0",
+    "componentId" : "menu_caiross_level-index-0",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_caiross_level-index-1",
+    "componentId" : "menu_caiross_level-index-1",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_caiross_level-index-2",
+    "componentId" : "menu_caiross_level-index-2",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_caiross_level-index-3",
+    "componentId" : "menu_caiross_level-index-3",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_caiross_level-select",
+    "componentId" : "menu_caiross_level-select",
     "x" : 0,
     "y" : 0,
     "w" : 1,

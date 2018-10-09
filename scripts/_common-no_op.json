@@ -65,7 +65,7 @@
           "is": "SCREEN", "value": "popup_package"
         },
         "actions": [{
-          "type": "INFO", "value": "Gift Box Popup Detected"}, {
+          "type": "INFO", "value": "Package Popup Detected"}, {
           "type": "TAP", "value": "popup_package-close"}, {
           "type": "WAIT", "value": "2000"}, {
           "type": "REPEAT", "value": ""}
@@ -316,6 +316,29 @@
         "actions": [{
           "type": "SET", "var": "_loops", "value": "0"}, {
           "type": "RETURN"}
+        ]
+      }]
+    },
+
+    "@isB10": {
+      "name": "Function - Is Unit Limit Break Ready",
+      "variables": {
+        "index": {
+          "value": "0", "type": "INT"
+        }
+      },
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_caiross_level-b10-unlocked", "or": [{
+            "is": "SCREEN", "value": "menu_caiross_level-b10-locked"
+          }]
+        },
+        "actions": [{
+          "type": "RETURN", "value": "1"}
+          ]
+      }, {
+        "actions": [{
+          "type": "RETURN", "value": "0"}
         ]
       }]
     }
