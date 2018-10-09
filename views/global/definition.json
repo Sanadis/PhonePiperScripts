@@ -20,6 +20,36 @@
     "points" : [ ],
     "enabled" : false
   }, {
+    "name" : "menu_battle-results",
+    "screenId" : "menu_battle-results",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_actions",
+    "screenId" : "menu_battle-results_actions",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_rune",
+    "screenId" : "menu_battle-results_rune",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_rune-5-star",
+    "screenId" : "menu_battle-results_rune-5-star",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_rune-6-star",
+    "screenId" : "menu_battle-results_rune-6-star",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_rune-legend",
+    "screenId" : "menu_battle-results_rune-legend",
+    "points" : [ ],
+    "enabled" : false
+  }, {
     "name" : "menu_caiross",
     "screenId" : "menu_caiross",
     "points" : [ ],
@@ -37,6 +67,11 @@
   }, {
     "name" : "menu_home",
     "screenId" : "menu_home",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "menu_unit-select",
+    "screenId" : "menu_unit-select",
     "points" : [ ],
     "enabled" : false
   }, {
@@ -111,6 +146,38 @@
     "h" : 1,
     "enabled" : false
   }, {
+    "name" : "menu_battle-results_actions-no",
+    "componentId" : "menu_battle-results_actions-no",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_actions-replay",
+    "componentId" : "menu_battle-results_actions-replay",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_get",
+    "componentId" : "menu_battle-results_get",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_battle-results_sell",
+    "componentId" : "menu_battle-results_sell",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
     "name" : "menu_caiross_dungeon-select",
     "componentId" : "menu_caiross_dungeon-select",
     "x" : 0,
@@ -161,6 +228,14 @@
   }, {
     "name" : "menu_home-battle",
     "componentId" : "menu_home-battle",
+    "x" : 0,
+    "y" : 0,
+    "w" : 1,
+    "h" : 1,
+    "enabled" : false
+  }, {
+    "name" : "menu_unit-select_start",
+    "componentId" : "menu_unit-select_start",
     "x" : 0,
     "y" : 0,
     "w" : 1,
