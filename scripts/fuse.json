@@ -255,7 +255,7 @@
             },
             {
               "type": "WAIT",
-              "value": "${skip-time}"
+              "value": "500"
             },
             {
               "type": "TAP",
@@ -264,7 +264,7 @@
             },
             {
               "type": "WAIT",
-              "value": "${skip-time}"
+              "value": "500"
             },
             {
               "type": "TAP",
