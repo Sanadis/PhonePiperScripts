@@ -138,8 +138,8 @@
     "h" : 1,
     "enabled" : false
   }, {
-    "name" : "menu_battle-caiross",
-    "componentId" : "menu_battle-caiross",
+    "name" : "menu_world-caiross",
+    "componentId" : "menu_world-caiross",
     "x" : 0,
     "y" : 0,
     "w" : 1,

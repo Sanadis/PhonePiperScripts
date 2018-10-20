@@ -1,17 +1,17 @@
 //@formatter:off
 {
   "vars": [{
+      "name": "_seconds", "value": "0", "type": "INT", "modify": "VISIBLE", "display": "Run Time", "displayType": "SECONDS"}, {
+      "name": "_loops", "value": "0", "type": "INT", "modify": "VISIBLE", "display": "Timer", "displayType": "SECONDS"}, {
       "name": "_screen_saver", "value": "0", "type": "INT", "modify": "VISIBLE", "display": "Screen Saver", "displayType": "SECONDS"}, {
-      "name": "_seconds", "value": "0", "type": "INT", "modify": "VISIBLE", "display": "Elapsed Time", "displayType": "SECONDS"}, {
-      "name": "_loops", "value": "0", "type": "INT", "modify": "VISIBLE", "display": "NoOp", "displayType": "SECONDS"}, {
       "name": "allow-ss", "display": "Enable Screen Saver", "value": "1", "type": "INT", "modify": "EDITABLE", "displayType": "BOOLEAN", "order": 10
     }
   ],
-  
+
   "states": {
-  
+
     "main": {
-      "name": "Common - Main Template", 
+      "name": "! Main Template !",
       "includes": [
         "_common-no_op"
       ],
@@ -37,19 +37,25 @@
 
     "popup_handler": {
       "name": "Popup Handler",
-      "includes": [],
+      "includes": [
+        "_popup_*"
+      ],
       "statements": [{
         "condition": {
           "var": "_loops", "is": "GREATER", "value": "30"
         },
         "actions": [{
-          "type": "CALL", "value": "@keepAlive"}, {
           "type": "INFO", "value": "Stuck on popup or unknown screen, moving to home"}, {
           "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
           "type": "MOVE", "value": "home"}
         ]
-      }, {
+      }]
+    },
 
+    "_popup_general": {
+      "name": "Popup - General",
+      "statements": [{
         "condition": {
           "is": "SCREEN", "value": "popup_general"
         },
@@ -57,10 +63,15 @@
           "type": "INFO", "value": "General Popup Detected"}, {
           "type": "TAP", "value": "popup_general-ok"}, {
           "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
           "type": "REPEAT", "value": ""}
         ]
-      }, {
+      }]
+    },
 
+    "_popup_package": {
+      "name": "Popup - Package",
+      "statements": [{
         "condition": {
           "is": "SCREEN", "value": "popup_package"
         },
@@ -68,10 +79,15 @@
           "type": "INFO", "value": "Package Popup Detected"}, {
           "type": "TAP", "value": "popup_package-close"}, {
           "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
           "type": "REPEAT", "value": ""}
         ]
-      }, {
+      }]
+    },
 
+    "_popup_gift-box": {
+      "name": "Popup - Gift Box",
+      "statements": [{
         "condition": {
           "is": "SCREEN", "value": "popup_gift-box"
         },
@@ -79,10 +95,15 @@
           "type": "INFO", "value": "Gift Box Popup Detected"}, {
           "type": "TAP", "value": "popup_gift-box_close"}, {
           "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
           "type": "REPEAT", "value": ""}
         ]
-      }, {
+      }]
+    },
 
+    "_popup_daily": {
+      "name": "Popup - Daily",
+      "statements": [{
         "condition": {
           "is": "SCREEN", "value": "popup_daily"
         },
@@ -90,17 +111,39 @@
           "type": "INFO", "value": "Daily Popup Detected"}, {
           "type": "TAP", "value": "popup_daily-close"}, {
           "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
           "type": "REPEAT", "value": ""}
         ]
-      }, {
+      }]
+    },
 
+    "_popup_disconnected": {
+      "name": "Popup - Disconnected",
+      "statements": [{
         "condition": {
           "is": "SCREEN", "value": "popup_disconnected"
         },
         "actions": [{
-          "type": "INFO", "value": "Disconnected Popup Detected, moving to login"}, {
+          "type": "INFO", "value": "Disconnected Popup Detected"}, {
           "type": "TAP", "value": "popup_disconnected-ok"}, {
           "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
+          "type": "REPEAT", "value": ""}
+        ]
+      }]
+    },
+
+    "_popup_arena-rewards": {
+      "name": "Popup - Arena Rewards",
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "popup_arena-rewards"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Arena/Siege rewards Popup Detected"}, {
+          "type": "TAP", "value": "popup_arena-rewards-ok"}, {
+          "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
           "type": "REPEAT", "value": ""}
         ]
       }]
@@ -117,36 +160,17 @@
           "is": "SCREEN", "value": "menu_home"
         },
         "actions": [{
-          "type": "CALL", "value": "@keepAlive"}, {
           "type": "INFO", "value": "Home Detected, moving to farm"}, {
           "type": "WAIT", "value": "1000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
           "type": "MOVE", "value": "farm"}
         ]
       }]
     },
 
-    "farm": {
-      "name": "Farm - Main",
-      "includes": [],
-      "statements": []
-    },
-
     "_backup_to_home": {
       "name": "Backup to Home",
       "statements": [{
-        "condition": {
-          "var": "_loops", "is": "GREATER", "value": "15",
-          "and": [{
-            "not": "SCREEN", "value": "menu_home"}
-          ]
-        },
-        "actions": [{
-          "type": "INFO", "value": "Home not detected, moving to main"}, {
-          "type": "WAIT", "value": "2000"}, {
-          "type": "MOVE", "value": "main"}
-        ]
-      }, {
-
         "condition": {
           "not": "SCREEN", "value": "menu_home"
         },
@@ -158,31 +182,86 @@
         ]
       }]
     },
-  
-    "recovery": {
-      "name": "Common - Recovery Template", 
+
+    "farm": {
+      "name": "Farm ! Selector !",
       "includes": [
-        "_common-recovery_os"
-      ]
+        "farm_*"
+      ],
+      "statements": []
     },
 
     "log-in": {
       "name": "Login",
       "includes": [
-        "_log-in_ads",
-        "_login_notice",
-        "_common-no_op"
+        "_login_update",
+        "_login_update-download",
+        "_login_ads",
+        "_login_notice"
       ],
       "statements": [{
+        "condition": {
+          "var": "_loops", "is": "GREATER", "value": "30"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Unknown screen detected during login, stopping."}, {
+          "type": "STOP"}
+        ]
+      }, {
         "condition": {
           "is": "SCREEN", "value": "login_splash"
         },
         "actions": [{
-          "type": "CALL", "value": "@keepAlive"}, {
           "type": "INFO", "value": "Log in successful"}, {
           "type": "TAP", "value": "login_splash-start"}, {
           "type": "WAIT", "value": "5000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
           "type": "MOVE", "value": "main"}
+        ]
+      }]
+    },
+
+    "_login_update": {
+      "name": "Login Ads",
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "login_update"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Log in update detected"}, {
+          "type": "TAP", "value": "login_update-ok"}, {
+          "type": "WAIT", "value": "2000"}, {
+          "type": "REPEAT"}
+        ]
+      }]
+    },
+
+    "_login_update-download": {
+      "name": "Login Ads",
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "login_update-download"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Log in download detected"}, {
+          "type": "TAP", "value": "login_update-download-ok"}, {
+          "type": "WAIT", "value": "5000"}, {
+          "type": "REPEAT"}
+        ]
+      }]
+    },
+
+    "_login_ads": {
+      "name": "Login Ads",
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "login_ads"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Log in ads detected"}, {
+          "type": "TAP", "value": "login_ads-dont"}, {
+          "type": "WAIT", "value": "2000"}, {
+          "type": "REPEAT"}
         ]
       }]
     },
@@ -202,28 +281,6 @@
       }]
     },
 
-    "_log-in_ads": {
-      "name": "Login Ads",
-      "statements": [{
-        "condition": {
-          "is": "SCREEN", "value": "login_ads"
-        },
-        "actions": [{
-          "type": "INFO", "value": "Log in ads detected"}, {
-          "type": "TAP", "value": "login_ads-dont"}, {
-          "type": "WAIT", "value": "2000"}, {
-          "type": "REPEAT"}
-        ]
-      }]
-    },
-  
-    "reset": {
-      "name": "Common - Reset", 
-      "includes": [
-        "_common-reset"
-      ]
-    },
-  
     "_common-screen_saver": {
       "name": "Common - Screen Saver",
       "statements": [{
@@ -239,79 +296,69 @@
           "type": "EVENT", "value": "camera"}, {
           "type": "WAIT", "value": "5000"}, {
           "type": "EVENT", "value": "back"}, {
-          "type": "WAIT", "value": "15000"}, {
+          "type": "WAIT", "value": "10000"}, {
           "type": "INFO", "value": "Returning"}, {
-          "type": "REPEAT", "value": ""}
+          "type": "REPEAT"}
         ]
       }]
     },
-  
+
+    "recovery": {
+      "name": "Common - Recovery Template",
+      "includes": [
+        "_common-recovery_os"
+      ]
+    },
+
     "_common-recovery_os": {
-      "name": "Common - Power Device Down", 
+      "name": "Common - Power Device Down",
       "includes": [
 //        "_common-power_down"
       ]
     },
-  
+
     "_common-power_down": {
       "name": "Common - Power Down",
       "statements": [{
         "condition": {
           "is": "BOOLEAN", "value": "true"
-        }, 
+        },
         "actions": [{
           "type": "INFO", "value": "Default operation stops operations and locks the device"}, {
           "type": "EVENT", "value": "power"}, {
           "type": "STOP"}
         ]
       }]
-    }, 
-  
+    },
+
     "_common-no_op": {
       "name": "Common - No-Op",
       "includes": [
         "popup_handler"
       ],
       "statements": [{
-        
+
         "condition": {
           "is": "SCREEN", "value": "os-home"
-        }, 
+        },
         "actions": [{
           "type": "INFO", "value": "Home Screen Detected!"}, {
           "type": "TAP", "value": "os-app-icon"}, {
           "type": "MOVE", "value": "log-in"}
         ]
       }, {
-        
         "condition": {
-          "var": "_loops", "is": "GREATER", "value": "900"
-        }, 
+          "var": "_loops", "is": "GREATER", "value": "600"
+        },
         "actions": [{
           "type": "INFO", "value": "Too many cycles, stopping run"}, {
-          "type": "STOP", "value": ""}
-        ]
-        
-      }]
-    }, 
-
-    "_common-reset": {
-      "name": "Common - Reset", 
-      "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        }, 
-        "actions": [{
-          "type": "SET", "value": "0", "var": "_loops"}, {
-          "type": "SET", "value": "0", "var": "_seconds"}, {
-          "type": "SET", "value": "0", "var": "_screen_saver"}, {
-          "type": "MOVE", "value": "main"}
+          "type": "STOP"}
         ]
       }]
-    }, 
+    },
 
     "@keepAlive": {
-      "name": "Function - Keep Alive", 
+      "name": "Function - Keep Alive",
       "statements": [{
         "actions": [{
           "type": "SET", "var": "_loops", "value": "0"}, {
@@ -321,7 +368,30 @@
     },
 
     "@isB10": {
-      "name": "Function - Is Unit Limit Break Ready",
+      "name": "Function - Is B10",
+      "variables": {
+        "index": {
+          "value": "0", "type": "INT"
+        }
+      },
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "menu_caiross_level-b10-unlocked", "or": [{
+            "is": "SCREEN", "value": "menu_caiross_level-b10-locked"
+          }]
+        },
+        "actions": [{
+          "type": "RETURN", "value": "1"}
+          ]
+      }, {
+        "actions": [{
+          "type": "RETURN", "value": "0"}
+        ]
+      }]
+    },
+
+    "@isBattle": {
+      "name": "Function - Is Battle",
       "variables": {
         "index": {
           "value": "0", "type": "INT"
@@ -342,5 +412,6 @@
         ]
       }]
     }
+
   }
 }
