@@ -55,7 +55,7 @@
   }],
   "components" : [{
     "name" : "OS - App - Icon",
-    "componentId" : "os-app-icon",
+    "componentId" : "os-app-icon_a",
     "x" : 499,
     "y" : 1521,
     "w" : 90,

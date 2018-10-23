@@ -109,26 +109,26 @@
       // --------------------------------------------------------------- //
       // ---------------------------- Ayaka ---------------------------- //
       // --------------------------------------------------------------- //
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "EQUAL", "value": "0", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
-          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_ayaka}"} }, {
-          "not": "CALL", "value": "@isUnitLbSelected", "args": {"index": "${index_ayaka}"} }
-        ]
-      },
-      "actions": [{
-        "type": "INFO", "value": "Ayaka Limit Burst"}, {
-        "type": "CALL", "value": "@readyUnitLb", "args": {"index": "${index_ayaka}"}}, {
-        "type": "WAIT", "value": "1000"}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
-        "type": "ADD", "value": "1", "var": "stage"}, {
-        "type": "CALL", "value": "@keepAlive"}, {
-        "type": "REPEAT"}
-      ]
-
-    }, {
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "is": "EQUAL", "value": "0", "var":"stage"}, {
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
+//          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_ayaka}"} }, {
+//          "not": "CALL", "value": "@isUnitLbSelected", "args": {"index": "${index_ayaka}"} }
+//        ]
+//      },
+//      "actions": [{
+//        "type": "INFO", "value": "Ayaka Limit Burst"}, {
+//        "type": "CALL", "value": "@readyUnitLb", "args": {"index": "${index_ayaka}"}}, {
+//        "type": "WAIT", "value": "2000"}, {
+//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
+//        "type": "ADD", "value": "1", "var": "stage"}, {
+//        "type": "CALL", "value": "@keepAlive"}, {
+//        "type": "REPEAT"}
+//      ]
+//
+//    }, {
 
       "condition": {
         "is": "CALL", "value": "@isBattleReady",

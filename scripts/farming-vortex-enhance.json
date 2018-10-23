@@ -134,6 +134,10 @@
   "_farm-find_depart_team": {
     "name": "Farm - Find Depart Team (Override)",
     "statements": [{
+      "actions": [{
+        "type": "WAIT", "value": "500"}
+      ]
+    }, {
       "condition": {
         "is": "SCREEN", "value": "menu-depart",
         "and": [{
@@ -167,39 +171,40 @@
     "includes": [
       "_vortex_select_index",
       "_common-no_op"
-    ],
-    "statements": [{
-      "condition": {
-        "is": "SCREEN", "value": "menu-vortex",
-        "and": [{
-          "not": "SCREEN", "value": "menu-vortex-enhance"}
-        ]
-      },
-      "actions": [{
-        "type": "INFO", "value": "Clicking Vortex Enhance"}, {
-        "type": "TAP", "value": "menu-vortex-enhance"}, {
-        "type": "WAIT", "value": "2000"}, {
-        "type": "REPEAT", "value": ""}
-      ]
-    }]
+    ]
+//    "statements": [{
+//      "condition": {
+//        "is": "SCREEN", "value": "menu-vortex",
+//        "and": [{
+//          "not": "SCREEN", "value": "menu-vortex-enhance"}
+//        ]
+//      },
+//      "actions": [{
+//        "type": "INFO", "value": "Clicking Vortex Enhance"}, {
+//        "type": "TAP", "value": "menu-vortex-enhance"}, {
+//        "type": "WAIT", "value": "2000"}, {
+//        "type": "REPEAT", "value": ""}
+//      ]
+//    }]
   },
 
   "_vortex_select_index": {
     "name": "Vortex - Select Index",
     "includes": [
+      "_common-vtx-items",
       "_vortex_locked"
-    ],
-    "statements": [{
-      "condition": {
-        "is": "SCREEN", "value": "menu-vortex-enhance"
-      },
-      "actions": [{
-        "type": "INFO", "value": "Tapping Vortex Index ${vortex-farm-item}"}, {
-        "type": "TAP", "value": "menu-vortex-item_${vortex-farm-item}"}, {
-        "type": "WAIT", "value": "2000"}, {
-        "type": "REPEAT", "value": ""}
-      ]
-    }]
+    ]
+//    "statements": [{
+////      "condition": {
+////        "is": "SCREEN", "value": "menu-vortex-enhance"
+////      },
+//      "actions": [{
+//        "type": "CALL", "value": "@selectVortexItem"}, {
+//        "type": "WAIT", "value": "2000"}, {
+////        "type": "REPEAT", "value": ""}
+//        "type": "MOVE", "value": "farm-menu"}
+//      ]
+//    }]
   },
 
   "_vortex_locked": {
@@ -246,11 +251,6 @@
 
   "_common_battle-three_attack": {
     "name": "Common Battle - All Attack (Override)",
-    "variables": {
-     "index_xon1": {"value": "0", "type": "INT"},
-     "index_xon2": {"value": "1", "type": "INT"},
-     "setup": {"value": "0", "type": "INT"}
-    },
     "statements": [{
       "condition": {
         "var": "_loops", "is": "GREATER", "value": "20"
@@ -270,92 +270,18 @@
     }, {
 
       "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [
-          {"is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon1}"}},
-          {"is": "EQUAL", "var": "setup", "value": "1"}
-        ]
+        "is": "CALL", "value": "@isBattleReady"
       },
       "actions": [{
         "type": "CALL", "value": "@keepAlive"}, {
-        "type": "TAP", "value": "battle-repeat"}, {
-        "type": "WAIT", "value": "3000"}, {
-        "type": "REPEAT"}
-      ]
-
-    }, {
-
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon1}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_xon1}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon1}"} }
-        ]
-      },
-      "actions": [{
-        "type": "TAP", "value": "battle-reload"}, {
+        "type": "CALL", "value": "@readyUnitLb", "args": {"index": "5"}}, {
         "type": "WAIT", "value": "500"}, {
-        "type": "CALL", "value": "@xon-waylay", "args": {"index": "${index_xon1}"}}, {
-        "type": "REPEAT"}
-      ]
-    }, {
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon2}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_xon2}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon2}"} }
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@xon-waylay", "args": {"index": "${index_xon2}"}}, {
-        "type": "REPEAT"}
-      ]
-
-    }, {
-
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "not": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon1}"}, "or": [{"is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon1}"}}]}, {
-          "not": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon2}"}, "or": [{"is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon2}"}}]}
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@keepAlive"}, {
-        "type": "BATCH", "value": "START"}, {
-        "type": "TAP", "value": "battle-unit_${index_xon1}"}, {
-        "type": "TAP", "value": "battle-unit_${index_xon2}"}, {
-        "type": "BATCH", "value": "END"}, {
-        "type": "SET", "value": "1", "var": "setup"}, {
-        "type": "WAIT", "value": "3000"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "5"}}, {
+        "type": "WAIT", "value": "8000"}, {
         "type": "REPEAT", "value": ""}
       ]
     }, {
 
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "not": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon1}"}, "or": [{
-            "not": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon2}"}}
-          ]}
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@keepAlive"}, {
-        "type": "BATCH", "value": "START"}, {
-        "type": "TAP", "value": "battle-unit_0"}, {
-        "type": "TAP", "value": "battle-unit_1"}, {
-        "type": "TAP", "value": "battle-unit_2"}, {
-        "type": "TAP", "value": "battle-unit_3"}, {
-        "type": "TAP", "value": "battle-unit_4"}, {
-        "type": "TAP", "value": "battle-unit_5"}, {
-        "type": "BATCH", "value": "END"}, {
-        "type": "WAIT", "value": "3000"}, {
-        "type": "REPEAT", "value": ""}
-      ]
-    }, {
       "condition": {
          "is": "SCREEN", "value": "battle-actions"
        },
