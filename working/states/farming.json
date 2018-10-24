@@ -25,7 +25,7 @@
     "description" : "Enable / Disable ARENA",
     "tierId" : "enable",
     "display" : "Arena",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -138,6 +138,27 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "vortex-farm-item",
+    "description" : "Which Vortex menu item do you wish to farm.",
+    "tierId" : "vortex",
+    "display" : "Vortex - Farm Index",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 0,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Top)",
+      "value" : "0"
+    }, {
+      "name" : "Two (Middle)",
+      "value" : "1"
+    }, {
+      "name" : "Three (Bottom)",
+      "value" : "2"
+    } ]
+  }, {
     "name" : "raid-party-index",
     "description" : "Which unit group do you RAID with?",
     "tierId" : "raid",
@@ -201,6 +222,24 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "vortex-auto-unlock",
+    "description" : "Automatically unlock the Vortex? (This can be dangerous if the menu items shift such as on the weekend)",
+    "tierId" : "vortex",
+    "display" : "Vortex - Auto Unlock",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "True",
+      "value" : "1"
+    }, {
+      "name" : "False",
+      "value" : "0"
+    } ]
+  }, {
     "name" : "arena-party-defense-index",
     "description" : null,
     "tierId" : "arena",
@@ -232,7 +271,7 @@
     "description" : "What is your player level?  We need to to calculate your available energy reserve.",
     "tierId" : "farm",
     "display" : "Player Level",
-    "value" : "83",
+    "value" : "88",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -244,7 +283,7 @@
     "description" : "When elapsed time is is greater then this value, farming will stop and another operation will take place.",
     "tierId" : "farm",
     "display" : "Transition Timer",
-    "value" : "3600",
+    "value" : "12600",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "SECONDS",
@@ -355,10 +394,10 @@
     } ]
   }, {
     "name" : "vortex-item",
-    "description" : "Which vortex item is the raid?",
-    "tierId" : "raid",
+    "description" : "Which vortex item is the raid/farm?",
+    "tierId" : "vortex",
     "display" : "Vortex Item",
-    "value" : "2",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -373,6 +412,57 @@
     }, {
       "name" : "Three",
       "value" : "2"
+    } ]
+  }, {
+    "name" : "extra_delay_minutes",
+    "description" : null,
+    "tierId" : "*",
+    "display" : "Extra Delay",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "1-5 Minutes",
+      "value" : "0"
+    }, {
+      "name" : "5-10 Minutes",
+      "value" : "1"
+    }, {
+      "name" : "10-15 Minutes",
+      "value" : "2"
+    }, {
+      "name" : "15-20 Minutes",
+      "value" : "3"
+    }, {
+      "name" : "20-25 Minutes",
+      "value" : "4"
+    }, {
+      "name" : "25-30 Minutes",
+      "value" : "5"
+    }, {
+      "name" : "30-35 Minutes",
+      "value" : "6"
+    }, {
+      "name" : "40-45 Minutes",
+      "value" : "7"
+    }, {
+      "name" : "50-55 Minutes",
+      "value" : "8"
+    }, {
+      "name" : "55-60 Minutes",
+      "value" : "9"
+    }, {
+      "name" : "1:55-2:00",
+      "value" : "23"
+    }, {
+      "name" : "2:55-3:00",
+      "value" : "35"
+    }, {
+      "name" : "3:55-4:00",
+      "value" : "47"
     } ]
   }, {
     "name" : "arena-rule-physical_combos",
@@ -463,6 +553,33 @@
     }, {
       "name" : "Yes",
       "value" : "1"
+    } ]
+  }, {
+    "name" : "vortex-party-index",
+    "description" : "Which unit group do you Vortex farm with?",
+    "tierId" : "vortex",
+    "display" : "Vortex Farm Party",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 0,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "One (Left)",
+      "value" : "0"
+    }, {
+      "name" : "Two",
+      "value" : "1"
+    }, {
+      "name" : "Three (Middle)",
+      "value" : "2"
+    }, {
+      "name" : "Four",
+      "value" : "3"
+    }, {
+      "name" : "Five (Right)",
+      "value" : "4"
     } ]
   }, {
     "name" : "arena-rule-boosts",
@@ -580,6 +697,42 @@
     }, {
       "name" : "Four",
       "value" : "3"
+    } ]
+  }, {
+    "name" : "vortex-farm",
+    "description" : "Enable Vortex farming? (Overrides standard farming)",
+    "tierId" : "enable",
+    "display" : "Vortex (Farm Override)",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Enabled",
+      "value" : "1"
+    }, {
+      "name" : "Disabled",
+      "value" : "0"
+    } ]
+  }, {
+    "name" : "arena-rule-death",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Death",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
     } ]
   }, {
     "name" : "arena-rule-wind",

@@ -273,11 +273,11 @@
         "is": "CALL", "value": "@isBattleReady"
       },
       "actions": [{
-        "type": "CALL", "value": "@keepAlive"}, {
         "type": "CALL", "value": "@readyUnitLb", "args": {"index": "5"}}, {
         "type": "WAIT", "value": "500"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "5"}}, {
-        "type": "WAIT", "value": "8000"}, {
+        "type": "WAIT", "value": "10000"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT", "value": ""}
       ]
     }, {
