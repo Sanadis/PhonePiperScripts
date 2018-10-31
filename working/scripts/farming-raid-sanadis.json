@@ -5,8 +5,7 @@
   "veritas",
   "nichol",
   "malphasie",
-  "barbariccia",
-  "rinoa"
+  "xon"
 ],
 "states": {
 
@@ -25,14 +24,13 @@
     "variables": {
       "index_votd": {"value": "0", "type": "INT"},
       "index_malphasie": {"value": "1", "type": "INT"},
-      "index_rinoa": {"value": "2", "type": "INT"},
-      "index_nichol": {"value": "3", "type": "INT"},
-      "index_barb": {"value": "4", "type": "INT"},
+      "index_nichol": {"value": "2", "type": "INT"},
+      "index_xon": {"value": "3", "type": "INT"},
       "turn": {"value": "1", "type": "INT"}
     },
     "statements": [{
       "condition": {
-        "is"    : "SCREEN", "value" : "game-battle",
+        "is": "SCREEN", "value" : "game-battle",
         "and": [{
           "var": "_loops", "is": "GREATER", "value": "60"}
         ]
@@ -46,6 +44,7 @@
         "type": "TAP", "value": "battle-unit_2"}, {
         "type": "TAP", "value": "battle-unit_3"}, {
         "type": "TAP", "value": "battle-unit_4"}, {
+        "type": "TAP", "value": "battle-unit_5"}, {
         "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "2000"}, {
         "type": "ADD", "value": "1", "var": "turn"}, {
@@ -66,7 +65,7 @@
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@nichol-soulful", "args": {"index": "${index_nichol}"}}, {
+        "type": "CALL", "value": "@nichol-courageous", "args": {"index": "${index_nichol}"}}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -83,6 +82,20 @@
         "type": "CALL", "value": "@veritas-impact", "args": {"index": "${index_votd}"}}, {
         "type": "REPEAT"}
       ]
+    }, {
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_xon}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon}"} }
+        ]
+      },
+      "actions": [{
+        "type": "CALL", "value": "@xon-waylay", "args": {"index": "${index_xon}"}}, {
+        "type": "REPEAT"}
+      ]
+
     }, {
 
       "condition": {
@@ -102,9 +115,9 @@
       "condition": {
         "is": "SCREEN", "value": "game-battle-repeat",
         "and": [{
-          "not": "SCREEN","value": "battle-unit-${index_votd}_ready", "or": [{"not": "SCREEN", "value": "battle-unit-${index_votd}_mp", "or": [{"is": "SCREEN", "value": "battle-unit-${index_votd}_magic"}]}]}, {
-          "not": "SCREEN","value": "battle-unit-${index_malphasie}_ready", "or": [{"not": "SCREEN", "value": "battle-unit-${index_malphasie}_mp", "or": [{"is": "SCREEN", "value": "battle-unit-${index_malphasie}_ability"}]}]}, {
-          "not": "SCREEN","value": "battle-unit-${index_nichol}_ready", "or": [{"not": "SCREEN", "value": "battle-unit-${index_nichol}_mp", "or": [{"is": "SCREEN", "value": "battle-unit-${index_nichol}_ability"}]}]}
+          "is": "SCREEN", "value": "battle-unit-${index_votd}_magic"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_malphasie}_ability"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_nichol}_ability"}
         ]
       },
       "actions": [{
@@ -114,6 +127,7 @@
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_votd}"}}, {
         "type": "WAIT", "value": "500"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_xon}"}}, {
         "type": "ADD", "value": "1", "var": "turn"}, {
         "type": "WAIT", "value": "2000"}, {
         "type": "REPEAT"}

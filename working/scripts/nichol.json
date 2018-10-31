@@ -12,9 +12,23 @@
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
         "actions": [{
-          "type": "INFO", "value": "Soulful Stance - Buffs (POS: ${index})"}, {
+          "type": "INFO", "value": "Nichol - Soulful Stance (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
           "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "1"}}, {
+          "type": "CALL", "value": "@tapUnit", "args": {"index": "${index}"}}
+        ]
+      }]
+    },
+
+    "@nichol-courageous": {
+      "name": "Nichol - Courageous Stance",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Nichol - Courageous Stance (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "8", "column": "1"}}, {
           "type": "CALL", "value": "@tapUnit", "args": {"index": "${index}"}}
         ]
       }]

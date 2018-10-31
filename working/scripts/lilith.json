@@ -1,0 +1,29 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Lilith", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@lilith-midnight": {
+      "name": "Lilith - Serpente Kiss of Midnight",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "condition": {
+          "is": "BOOLEAN", "value": "true"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Lilith - Serpente Kiss of Midnight (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "8", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}
+        ]}
+      ]
+    }
+
+  }
+}

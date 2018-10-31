@@ -270,16 +270,33 @@
     }, {
 
       "condition": {
-        "is": "CALL", "value": "@isBattleReady"
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "not": "CALL", "value": "@isUnitLbSelected", "args": {"index": "5"}
+        }]
       },
       "actions": [{
         "type": "CALL", "value": "@readyUnitLb", "args": {"index": "5"}}, {
-        "type": "WAIT", "value": "500"}, {
+        "type": "WAIT", "value": "1000"}, {
+        "type": "CONTINUE"}, {
+        "type": "REPEAT", "value": ""}
+      ]
+
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "CALL", "value": "@isUnitLbSelected", "args": {"index": "5"}
+        }]
+      },
+      "actions": [{
         "type": "CALL", "value": "@tapUnit", "args": {"index": "5"}}, {
         "type": "WAIT", "value": "10000"}, {
         "type": "CALL", "value": "@keepAlive"}, {
-        "type": "REPEAT", "value": ""}
+        "type": "REPEAT"}
       ]
+
     }, {
 
       "condition": {

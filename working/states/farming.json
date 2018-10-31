@@ -97,7 +97,7 @@
     "description" : "Which unit group do you TMR farm with?",
     "tierId" : "farm",
     "display" : "Farm Party",
-    "value" : "1",
+    "value" : "0",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -136,27 +136,6 @@
     }, {
       "name" : "Yes",
       "value" : "1"
-    } ]
-  }, {
-    "name" : "vortex-farm-item",
-    "description" : "Which Vortex menu item do you wish to farm.",
-    "tierId" : "vortex",
-    "display" : "Vortex - Farm Index",
-    "value" : "0",
-    "type" : "INT",
-    "modify" : "EDITABLE",
-    "displayType" : "STANDARD",
-    "order" : 0,
-    "skipSave" : false,
-    "values" : [ {
-      "name" : "One (Top)",
-      "value" : "0"
-    }, {
-      "name" : "Two (Middle)",
-      "value" : "1"
-    }, {
-      "name" : "Three (Bottom)",
-      "value" : "2"
     } ]
   }, {
     "name" : "raid-party-index",
@@ -222,24 +201,6 @@
       "value" : "1"
     } ]
   }, {
-    "name" : "vortex-auto-unlock",
-    "description" : "Automatically unlock the Vortex? (This can be dangerous if the menu items shift such as on the weekend)",
-    "tierId" : "vortex",
-    "display" : "Vortex - Auto Unlock",
-    "value" : "0",
-    "type" : "INT",
-    "modify" : "EDITABLE",
-    "displayType" : "BOOLEAN",
-    "order" : 10,
-    "skipSave" : false,
-    "values" : [ {
-      "name" : "True",
-      "value" : "1"
-    }, {
-      "name" : "False",
-      "value" : "0"
-    } ]
-  }, {
     "name" : "arena-party-defense-index",
     "description" : null,
     "tierId" : "arena",
@@ -271,7 +232,7 @@
     "description" : "What is your player level?  We need to to calculate your available energy reserve.",
     "tierId" : "farm",
     "display" : "Player Level",
-    "value" : "88",
+    "value" : "95",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -283,7 +244,7 @@
     "description" : "When elapsed time is is greater then this value, farming will stop and another operation will take place.",
     "tierId" : "farm",
     "display" : "Transition Timer",
-    "value" : "12600",
+    "value" : "10800",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "SECONDS",
@@ -295,7 +256,7 @@
     "description" : "Is the RAID available on the home banner?  If so enable this.",
     "tierId" : "raid",
     "display" : "Home Raid",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -361,7 +322,7 @@
     "description" : "Enable or disable Raiding",
     "tierId" : "enable",
     "display" : "Raid",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -379,7 +340,7 @@
     "description" : "Which menu item do you wish to farm.  Typically the first item is a Exploration so you would want two or three.",
     "tierId" : "os",
     "display" : "Recovery",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -397,7 +358,7 @@
     "description" : "Which vortex item is the raid/farm?",
     "tierId" : "vortex",
     "display" : "Vortex Item",
-    "value" : "1",
+    "value" : "0",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -555,33 +516,6 @@
       "value" : "1"
     } ]
   }, {
-    "name" : "vortex-party-index",
-    "description" : "Which unit group do you Vortex farm with?",
-    "tierId" : "vortex",
-    "display" : "Vortex Farm Party",
-    "value" : "0",
-    "type" : "INT",
-    "modify" : "EDITABLE",
-    "displayType" : "STANDARD",
-    "order" : 0,
-    "skipSave" : false,
-    "values" : [ {
-      "name" : "One (Left)",
-      "value" : "0"
-    }, {
-      "name" : "Two",
-      "value" : "1"
-    }, {
-      "name" : "Three (Middle)",
-      "value" : "2"
-    }, {
-      "name" : "Four",
-      "value" : "3"
-    }, {
-      "name" : "Five (Right)",
-      "value" : "4"
-    } ]
-  }, {
     "name" : "arena-rule-boosts",
     "description" : null,
     "tierId" : "arena-rules",
@@ -697,24 +631,6 @@
     }, {
       "name" : "Four",
       "value" : "3"
-    } ]
-  }, {
-    "name" : "vortex-farm",
-    "description" : "Enable Vortex farming? (Overrides standard farming)",
-    "tierId" : "enable",
-    "display" : "Vortex (Farm Override)",
-    "value" : "1",
-    "type" : "INT",
-    "modify" : "EDITABLE",
-    "displayType" : "BOOLEAN",
-    "order" : 10,
-    "skipSave" : false,
-    "values" : [ {
-      "name" : "Enabled",
-      "value" : "1"
-    }, {
-      "name" : "Disabled",
-      "value" : "0"
     } ]
   }, {
     "name" : "arena-rule-death",

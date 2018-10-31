@@ -11,15 +11,10 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Xon - Waylay (POS: ${index})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-1"}, {
-          "type": "WAIT", "value": "1500"}
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "0"}}
         ]}
       ]
     }
