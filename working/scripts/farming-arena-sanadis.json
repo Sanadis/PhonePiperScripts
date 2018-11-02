@@ -34,6 +34,7 @@
     "includes": [
       "_arena-battle-lb",
       "_arena-battle-f",
+      "_arena-battle-fight",
       "_common-no_op"
     ],
     "variables": {
@@ -46,12 +47,7 @@
        "index_ayaka": {"value": "4", "type": "INT"},
 
        "stage": {"value": "0", "type": "INT"},
-       "arena_turn": {"value": "1", "type": "INT"},
-       "elysium": {"value": "0", "type": "INT"},
-       "purify": {"value": "0", "type": "INT"},
-       "availableUnits": {"value": "0", "type": "INT"},
-       "modified": {"value": "0", "type": "INT"},
-       "lbAttempts": {"value": "0", "type": "INT"}
+       "arena_turn": {"value": "1", "type": "INT"}
     },
     "statements": [{
 
@@ -59,7 +55,7 @@
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
           "is": "LESS", "value": "5", "var": "stage"}, {
-          "is": "GREATER", "value": "15", "var": "_loops" }
+          "is": "GREATER", "value": "20", "var": "_loops" }
         ]
       },
       "actions": [{
@@ -124,13 +120,17 @@
         "and": [{
           "is": "EQUAL", "value": "0", "var":"stage"}, {
           "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
+          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_ayaka}"} }, {
           "not": "CALL", "value": "@isUnitLbSelected", "args": {"index": "${index_ayaka}"} }
         ]
       },
       "actions": [{
-        "type": "INFO", "value": "Ayaka LB"}, {
         "condition": {
-          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_ayaka}"}}, "type": "CONTINUE"}, {
+          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_ayaka}"}},
+          "type": "CONTINUE"}, {
+        "type": "WAIT", "value": "500"}, {
+        "type": "INFO", "value": "Ayaka Use LB"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -144,13 +144,14 @@
         "and": [{
           "is": "EQUAL", "value": "1", "var":"stage"}, {
           "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith}"} }, {
+          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_lilith}"} }, {
           "not": "CALL", "value": "@isUnitLbSelected", "args": {"index": "${index_lilith}"} }
         ]
       },
       "actions": [{
-        "type": "INFO", "value": "Lilith LB"}, {
         "condition": {
           "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_lilith}"}}, "type": "CONTINUE"}, {
+        "type": "INFO", "value": "Lilith Use LB"}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -163,12 +164,14 @@
         "and": [{
           "is": "EQUAL", "value": "2", "var":"stage"}, {
           "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith2}"} }, {
+          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_lilith2}"} }, {
           "not": "CALL", "value": "@isUnitLbSelected", "args": {"index": "${index_lilith2}"} }
         ]
       },
       "actions": [{
         "condition": {
           "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_lilith2}"}}, "type": "CONTINUE"}, {
+        "type": "INFO", "value": "Lilith Use LB"}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -404,10 +407,10 @@
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
         "type": "WAIT", "value": "1000"}, {
         "type": "BATCH", "value": "start"}, {
-        "type": "TAP", "value": "battle-unit_${index_malphasie}"}, {
-        "type": "TAP", "value": "battle-unit_${index_malphasie2}"}, {
         "type": "TAP", "value": "battle-unit_${index_lilith}"}, {
         "type": "TAP", "value": "battle-unit_${index_lilith2}"}, {
+        "type": "TAP", "value": "battle-unit_${index_malphasie}"}, {
+        "type": "TAP", "value": "battle-unit_${index_malphasie2}"}, {
         "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "5000"}, {
         "type": "SET", "value": "0", "var": "stage"}, {
@@ -433,7 +436,7 @@
     "name": "Arena - Battle - Fight (Override)",
     "description":"Continue fighting if every unit is fine, otherwise return to setup step.",
     "includes": [
-//      "_arena-battle-fight",
+      "_arena-battle-fight",
       "_common-no_op"
     ]
     }

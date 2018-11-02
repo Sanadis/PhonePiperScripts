@@ -232,7 +232,7 @@
     "description" : "What is your player level?  We need to to calculate your available energy reserve.",
     "tierId" : "farm",
     "display" : "Player Level",
-    "value" : "95",
+    "value" : "96",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -386,6 +386,9 @@
     "order" : 20,
     "skipSave" : false,
     "values" : [ {
+      "name" : "Skip",
+      "value" : "-1"
+    }, {
       "name" : "1-5 Minutes",
       "value" : "0"
     }, {
@@ -556,7 +559,7 @@
     "description" : null,
     "tierId" : "arena",
     "display" : "Battle Index",
-    "value" : "1",
+    "value" : "4",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
