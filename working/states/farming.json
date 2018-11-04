@@ -288,6 +288,30 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "skip-time",
+    "description" : null,
+    "tierId" : "*",
+    "display" : "Time Delay",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "None (0)",
+      "value" : "0"
+    }, {
+      "name" : "Fast (200)",
+      "value" : "200"
+    }, {
+      "name" : "Medium (400)",
+      "value" : "400"
+    }, {
+      "name" : "Slow (600)",
+      "value" : "600"
+    } ]
+  }, {
     "name" : "min-energy",
     "description" : "TMR farming will stop when this energy level is hit.",
     "tierId" : "farm",
