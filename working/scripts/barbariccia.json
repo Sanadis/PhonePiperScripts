@@ -11,20 +11,13 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Barbariccia - Tornado (POS: ${index})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "1"}, {
-          "type": "TAP", "value": "battle-skill-top-0"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-1"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-1"}, {
-          "type": "WAIT", "value": "1500"}
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "5", "column": "1"}}, {
+          "type": "SLOW_DOWN", "value": "battle-skill-top-slider", "count": "1"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "1"}}
         ]}
       ]
     },
@@ -34,9 +27,6 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Barbariccia - Sunder (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
@@ -54,9 +44,6 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Barbariccia - Tempest Eye Wall (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {

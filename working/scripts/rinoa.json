@@ -11,9 +11,6 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Rinoa - Tornado Triple (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
@@ -39,23 +36,18 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Rinoa - Tornado Double (POS: ${index})"}, {
-          "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "SLOW_UP", "value": "battle-skill-top-slider", "count": "4"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-2"}, {
-          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "6", "column": "1"}}, {
           "type": "SLOW_DOWN", "value": "battle-skill-top-slider", "count": "1"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "0"}}, {
           "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-0"}, {
-          "type": "WAIT", "value": "500"}, {
-          "type": "TAP", "value": "battle-skill-top-0"}, {
-          "type": "WAIT", "value": "1500"}
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "0"}}
         ]}
       ]
     },
@@ -65,9 +57,6 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Rinoa - Angel Wing (POS: ${index})"}, {
           "type": "SWIPE_RIGHT", "value": "battle-unit_${index}"}, {
