@@ -21,11 +21,32 @@
       "value" : "2"
     } ]
   }, {
+    "name" : "allow-expedition",
+    "description" : "Enable / Disable ARENA",
+    "tierId" : "enable",
+    "display" : "Expedition",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Disabled",
+      "value" : "0"
+    }, {
+      "name" : "Enabled",
+      "value" : "1"
+    }, {
+      "name" : "Supercites Only",
+      "value" : "2"
+    } ]
+  }, {
     "name" : "allow-arena",
     "description" : "Enable / Disable ARENA",
     "tierId" : "enable",
     "display" : "Arena",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -139,9 +160,9 @@
     } ]
   }, {
     "name" : "raid-party-index",
-    "description" : "Which unit group do you RAID with?",
+    "description" : "Which party, unit group do you RAID with?",
     "tierId" : "raid",
-    "display" : "Raid Party",
+    "display" : "Party",
     "value" : "4",
     "type" : "INT",
     "modify" : "EDITABLE",
@@ -232,7 +253,7 @@
     "description" : "What is your player level?  We need to to calculate your available energy reserve.",
     "tierId" : "farm",
     "display" : "Player Level",
-    "value" : "102",
+    "value" : "104",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -252,24 +273,6 @@
     "skipSave" : false,
     "values" : null
   }, {
-    "name" : "alt-raid",
-    "description" : "Is the RAID available on the home banner?  If so enable this.",
-    "tierId" : "raid",
-    "display" : "Home Raid",
-    "value" : "1",
-    "type" : "INT",
-    "modify" : "EDITABLE",
-    "displayType" : "BOOLEAN",
-    "order" : 10,
-    "skipSave" : false,
-    "values" : [ {
-      "name" : "Enabled",
-      "value" : "1"
-    }, {
-      "name" : "Disabled",
-      "value" : "0"
-    } ]
-  }, {
     "name" : "arena-rule-recovery",
     "description" : null,
     "tierId" : "arena-rules",
@@ -287,6 +290,18 @@
       "name" : "Yes",
       "value" : "1"
     } ]
+  }, {
+    "name" : "_route_from_send_gifts",
+    "description" : "Enable / Disable Sending Friend Gifts",
+    "tierId" : "state-route",
+    "display" : "After Send Gifts",
+    "value" : "EXTRA",
+    "type" : "STRING",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : null
   }, {
     "name" : "skip-time",
     "description" : null,
@@ -360,6 +375,18 @@
       "value" : "0"
     } ]
   }, {
+    "name" : "_route_from_expedition",
+    "description" : "Enable / Disable Sending Friend Gifts",
+    "tierId" : "state-route",
+    "display" : "After Expedition",
+    "value" : "GIFT",
+    "type" : "STRING",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : null
+  }, {
     "name" : "os-recovery",
     "description" : "Which menu item do you wish to farm.  Typically the first item is a Exploration so you would want two or three.",
     "tierId" : "os",
@@ -379,8 +406,8 @@
     } ]
   }, {
     "name" : "vortex-item",
-    "description" : "Which vortex item is the raid/farm?",
-    "tierId" : "vortex",
+    "description" : "Which vortex item is the raid?",
+    "tierId" : "raid",
     "display" : "Vortex Item",
     "value" : "0",
     "type" : "INT",
@@ -579,6 +606,24 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "allow-gifts",
+    "description" : "Enable / Disable Sending Friend Gifts",
+    "tierId" : "enable",
+    "display" : "Send Gifts",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Enabled",
+      "value" : "1"
+    }, {
+      "name" : "Disabled",
+      "value" : "0"
+    } ]
+  }, {
     "name" : "arena-party-index",
     "description" : null,
     "tierId" : "arena",
@@ -624,6 +669,27 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "raid-method",
+    "description" : "Enable or disable Raiding",
+    "tierId" : "raid",
+    "display" : "Method",
+    "value" : "3",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Event Link",
+      "value" : "3"
+    }, {
+      "name" : "Banner Link",
+      "value" : "2"
+    }, {
+      "name" : "Vortex Item",
+      "value" : "1"
+    } ]
+  }, {
     "name" : "allow-ss",
     "description" : null,
     "tierId" : "*",
@@ -660,6 +726,24 @@
       "value" : "3"
     } ]
   }, {
+    "name" : "leave-farm",
+    "description" : "Can farming leave to do other tasks when the timer or min-enegy is reached?",
+    "tierId" : "farm",
+    "display" : "Leave?",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Leave",
+      "value" : "1"
+    }, {
+      "name" : "Stay",
+      "value" : "0"
+    } ]
+  }, {
     "name" : "arena-rule-death",
     "description" : null,
     "tierId" : "arena-rules",
@@ -669,24 +753,6 @@
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
     "order" : 10,
-    "skipSave" : false,
-    "values" : [ {
-      "name" : "No",
-      "value" : "0"
-    }, {
-      "name" : "Yes",
-      "value" : "1"
-    } ]
-  }, {
-    "name" : "arena-rule-wind",
-    "description" : null,
-    "tierId" : "arena-rules",
-    "display" : "Allow Wind",
-    "value" : "1",
-    "type" : "INT",
-    "modify" : "EDITABLE",
-    "displayType" : "STANDARD",
-    "order" : 20,
     "skipSave" : false,
     "values" : [ {
       "name" : "No",
@@ -715,6 +781,24 @@
     }, {
       "name" : "C",
       "value" : "c"
+    } ]
+  }, {
+    "name" : "arena-rule-wind",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Wind",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
     } ]
   } ]
 }
