@@ -11,13 +11,10 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Ayaka - Embolden (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "1"}}, {
           "type": "WAIT", "value": "500"}, {
           "type": "CALL", "value": "@tapUnit", "args": {"index": "${index}"}}
         ]}
@@ -29,9 +26,6 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Ayaka - Stop Detach (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
@@ -47,13 +41,10 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Ayaka - Curaja (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "4", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "4", "column": "1"}}, {
           "type": "WAIT", "value": "500"}, {
           "type": "CALL", "value": "@tapUnit", "args": {"index": "${index}"}}
         ]}
@@ -65,14 +56,42 @@
       "includes": [],
       "variables": {"index": {"value": "0","type": "INT"}},
       "statements": [{
-        "condition": {
-          "is": "BOOLEAN", "value": "true"
-        },
         "actions": [{
           "type": "INFO", "value": "Ayaka - Dedication (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "7", "column": "0"}}, {
-          "type": "WAIT", "value": "500"}
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "8", "column": "1"}}
+        ]}
+      ]
+    },
+
+    "@ayaka-purify+": {
+      "name": "Ayaka - Purify+",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Ayaka - Purify+ (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "11", "column": "0"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+            "condition": {
+              "is": "SCREEN", "value": "battle-actions"},
+              "type": "CONTINUE"
+          }, {
+          "type": "CALL", "value": "@tapUnit", "args": {"index": "${index}"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "RETURN", "value": "1"}
+        ]}, {
+        "actions": [{
+          "type": "TAP", "value": "battle-actions-back"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
+          "type": "RETURN", "value": "0"}
         ]}
       ]
     }

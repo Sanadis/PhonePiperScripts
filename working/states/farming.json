@@ -22,10 +22,10 @@
     } ]
   }, {
     "name" : "allow-expedition",
-    "description" : "Enable / Disable ARENA",
+    "description" : "Control automating Supercite, D, C & B Expeditions",
     "tierId" : "enable",
     "display" : "Expedition",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -76,6 +76,24 @@
     }, {
       "name" : "Disabled",
       "value" : "0"
+    } ]
+  }, {
+    "name" : "arena-rule-multi_abilities",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "display" : "Allow Multiple use abilities",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
     } ]
   }, {
     "name" : "arena-rule-lightning",
@@ -253,7 +271,7 @@
     "description" : "What is your player level?  We need to to calculate your available energy reserve.",
     "tierId" : "farm",
     "display" : "Player Level",
-    "value" : "104",
+    "value" : "106",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -292,7 +310,7 @@
     } ]
   }, {
     "name" : "_route_from_send_gifts",
-    "description" : "Enable / Disable Sending Friend Gifts",
+    "description" : "Where to go next after Sending Gifts is finished.  Default is EXTRA to wait a while.",
     "tierId" : "state-route",
     "display" : "After Send Gifts",
     "value" : "EXTRA",
@@ -376,7 +394,7 @@
     } ]
   }, {
     "name" : "_route_from_expedition",
-    "description" : "Enable / Disable Sending Friend Gifts",
+    "description" : "Where to go next after Expeditions is finished.  Default is GIFT to send gifts.",
     "tierId" : "state-route",
     "display" : "After Expedition",
     "value" : "GIFT",
@@ -628,7 +646,7 @@
     "description" : null,
     "tierId" : "arena",
     "display" : "Battle Index",
-    "value" : "2",
+    "value" : "4",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
