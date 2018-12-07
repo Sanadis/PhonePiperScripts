@@ -40,6 +40,18 @@
           "type": "CALL", "value": "@selectUnitAction", "args": {"row": "9", "column": "1"}}
         ]}
       ]
+    },
+
+    "@malphasie-feather": {
+      "name": "Malphasie - Birds of a Feather",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Malphasie - Birds of a Feather (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "10", "column": "0"}}
+        ]}
+      ]
     }
 
   }

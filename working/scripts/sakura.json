@@ -1,0 +1,24 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Sakura", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@sakura-rebel": {
+      "name": "Sakura - Thousand Wings",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Sakura - Thousand Wings (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "4", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}
+        ]}
+      ]
+    }
+
+  }
+}

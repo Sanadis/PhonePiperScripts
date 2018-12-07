@@ -1,0 +1,23 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Trance Terra", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@terra-chaos": {
+      "name": "Trance Terra - Chaos Wave",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Trance Terra - Chaos Wave (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "6", "column": "0"}}
+        ]}
+      ]
+    }
+
+  }
+}

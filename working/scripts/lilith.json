@@ -19,6 +19,36 @@
           "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}
         ]}
       ]
+    },
+
+    "@lilith-dusklash": {
+      "name": "Lilith - Dusk Lash",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Lilith - Dusk Lash (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "5", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "0"}}
+        ]}
+      ]
+    },
+
+    "@lilith-midnight-imperil": {
+      "name": "Lilith - Dusk Lash/Midnight",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Lilith - Dusk Lash (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "5", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "4", "column": "1"}}
+        ]}
+      ]
     }
 
   }

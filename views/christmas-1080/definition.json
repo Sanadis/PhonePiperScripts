@@ -40,6 +40,11 @@
     "points" : [ ],
     "enabled" : false
   }, {
+    "name" : "Battle - Actions - Back",
+    "screenId" : "battle-actions_back",
+    "points" : [ ],
+    "enabled" : false
+  }, {
     "name" : "Battle - Complete",
     "screenId" : "battle-complete",
     "points" : [ ],
@@ -242,6 +247,41 @@
   }, {
     "name" : "Battle - Unit - 4 is Stopped",
     "screenId" : "battle-unit-4_stop",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "Battle - Unit - 5 - Has Ability",
+    "screenId" : "battle-unit-5_ability",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "Battle - Unit - 5 - Has LB",
+    "screenId" : "battle-unit-5_lb",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "Battle - Unit - 5 - Has Magic",
+    "screenId" : "battle-unit-5_magic",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "Battle - Unit - 5 - Has MP",
+    "screenId" : "battle-unit-5_mp",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "Battle - Unit - 5 - LB Not Full",
+    "screenId" : "battle-unit-5_notfull",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "Battle - Unit - 5 is Ready",
+    "screenId" : "battle-unit-5_ready",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "Battle - Unit - 5 is Stopped",
+    "screenId" : "battle-unit-5_stop",
     "points" : [ ],
     "enabled" : false
   }, {

@@ -89,7 +89,7 @@
           "type": "TAP", "value": "battle-actions-back"}, {
           "type": "WAIT", "value": "500"}, {
           "type": "REFRESH"}, {
-          "type": "WAIT", "value": "500"}, {
+          "type": "WAIT", "value": "1000"}, {
           "type": "CALL", "value": "@keepAlive"}, {
           "type": "RETURN", "value": "0"}
         ]}

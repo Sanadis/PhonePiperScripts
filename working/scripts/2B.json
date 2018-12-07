@@ -1,0 +1,23 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "2B", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@2B-R040": {
+      "name": "2B - R040: Blade",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "2B - R040: Blade (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "3", "column": "0"}}
+        ]}
+      ]
+    }
+
+  }
+}

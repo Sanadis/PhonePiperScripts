@@ -2,10 +2,12 @@
 {
 "vars": [],
 "imports": [
-  "veritas",
-  "nichol",
+//  "veritas",
+//  "nichol",
+  "lilith",
   "malphasie",
-  "xon"
+  "hyoh"
+//  "xon"
 ],
 "states": {
 
@@ -22,17 +24,18 @@
   "_raid_battle-auto": {
     "name": "Raid Battle - Auto (Override)",
     "variables": {
-      "index_votd": {"value": "0", "type": "INT"},
-      "index_malphasie": {"value": "1", "type": "INT"},
-      "index_nichol": {"value": "2", "type": "INT"},
-      "index_xon": {"value": "3", "type": "INT"},
+      "index_malphasie-break": {"value": "0", "type": "INT"},
+      "index_lilith-imperil": {"value": "1", "type": "INT"},
+      "index_lilith-chain": {"value": "2", "type": "INT"},
+      "index_malphasie-chain": {"value": "3", "type": "INT"},
+      "index_hyoh": {"value": "4", "type": "INT"},
       "turn": {"value": "1", "type": "INT"}
     },
     "statements": [{
       "condition": {
         "is": "SCREEN", "value" : "game-battle",
         "and": [{
-          "var": "_loops", "is": "GREATER", "value": "60"}
+          "var": "_loops", "is": "GREATER", "value": "120"}
         ]
       },
       "actions": [{
@@ -53,46 +56,29 @@
 
     }, {
 
-      // --------------------------------------------------------------- //
-      // --------------------------- TURN 1 ---------------------------- //
-      // --------------------------------------------------------------- //
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_nichol}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_nichol}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_nichol}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie-break}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie-break}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie-break}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@nichol-courageous", "args": {"index": "${index_nichol}"}}, {
-        "type": "REPEAT"}
-      ]
-    }, {
-
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_votd}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_votd}"} }, {
-          "not": "CALL", "value": "@isUnitMagicReady", "args": {"index": "${index_votd}"} }
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@veritas-impact", "args": {"index": "${index_votd}"}}, {
+        "type": "CALL", "value": "@malphasie-feather", "args": {"index": "${index_malphasie-break}"}}, {
         "type": "REPEAT"}
       ]
     }, {
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_xon}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith-imperil}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith-imperil}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-imperil}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@xon-waylay", "args": {"index": "${index_xon}"}}, {
+        "type": "CALL", "value": "@lilith-midnight-imperil", "args": {"index": "${index_lilith-imperil}"}}, {
         "type": "REPEAT"}
       ]
 
@@ -101,13 +87,41 @@
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith-chain}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith-chain}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-chain}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@malphasie-intenserancor", "args": {"index": "${index_malphasie}"}}, {
+        "type": "CALL", "value": "@lilith-midnight", "args": {"index": "${index_lilith-chain}"}}, {
+        "type": "REPEAT"}
+      ]
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie-chain}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie-chain}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie-chain}"} }
+        ]
+      },
+      "actions": [{
+        "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_malphasie-chain}"}}, {
+        "type": "REPEAT"}
+      ]
+    }, {
+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_hyoh}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_hyoh}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_hyoh}"} }
+        ]
+      },
+      "actions": [{
+        "type": "CALL", "value": "@hyoh-servant", "args": {"index": "${index_hyoh}"}}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -115,27 +129,33 @@
       "condition": {
         "is": "SCREEN", "value": "game-battle-repeat",
         "and": [{
-          "is": "SCREEN", "value": "battle-unit-${index_votd}_magic"}, {
-          "is": "SCREEN", "value": "battle-unit-${index_malphasie}_ability"}, {
-          "is": "SCREEN", "value": "battle-unit-${index_nichol}_ability"}
+          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie-chain}"} }, {
+          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-chain}"} }, {
+          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_hyoh}"} }
         ]
       },
       "actions": [{
         "type": "INFO", "value": "Attack ${turn}"}, {
-        "type": "CALL", "value": "@keepAlive"}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_nichol}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_votd}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie-break}"}}, {
         "type": "WAIT", "value": "500"}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_xon}"}}, {
-        "type": "ADD", "value": "1", "var": "turn"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith-imperil}"}}, {
+        "type": "WAIT", "value": "100"}, {
+        "type": "BATCH", "value": "start"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith-chain}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie-chain}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_hyoh}"}}, {
+        "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "2000"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "5"}}, {
+        "type": "WAIT", "value": "2000"}, {
+        "type": "ADD", "value": "1", "var": "turn"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
       ]
     }, {
 
       "condition": {
-         "is": "SCREEN", "value": "battle-actions"
+         "is": "SCREEN", "value": "battle-actions_back"
        },
        "actions": [{
          "type": "INFO", "value": "Backing up, stuck on skill screen"}, {
