@@ -300,7 +300,7 @@
     }, {
 
       "condition": {
-         "is": "SCREEN", "value": "battle-actions"
+         "is": "SCREEN", "value": "battle-actions_back"
        },
        "actions": [{
          "type": "INFO", "value": "Backing up, stuck on skill screen"}, {

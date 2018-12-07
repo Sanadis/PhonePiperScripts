@@ -35,8 +35,13 @@
     "points" : [ ],
     "enabled" : false
   }, {
-    "name" : "Battle - Abilities",
+    "name" : "Battle - Actions Select",
     "screenId" : "battle-actions",
+    "points" : [ ],
+    "enabled" : false
+  }, {
+    "name" : "Battle - Actions - Back",
+    "screenId" : "battle-actions_back",
     "points" : [ ],
     "enabled" : false
   }, {
