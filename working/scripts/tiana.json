@@ -1,0 +1,93 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Tiana", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@tiana-quad": {
+      "name": "Tiana - Quad Cast",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Tiana - Quad Cast (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "5", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CONTINUE"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "RETURN", "value": "1"}
+        ]
+      }, {
+        "actions": [{
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CONTINUE"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "RETURN", "value": "1"}
+        ]
+      }, {
+        "actions": [{
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "0"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "RETURN", "value": "1"}
+        ]}
+      ]
+    },
+
+    "@tiana-quad-fire": {
+      "name": "Tiana - Quad Cast",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Tiana - Quad Cast (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "3", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CONTINUE"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "RETURN", "value": "1"}
+        ]
+      }, {
+        "actions": [{
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CONTINUE"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "RETURN", "value": "1"}
+        ]
+      }, {
+        "actions": [{
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "0"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "RETURN", "value": "1"}
+        ]}
+      ]
+    }
+  }
+}

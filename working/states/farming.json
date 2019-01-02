@@ -3,6 +3,7 @@
     "name" : "raid-menu-item",
     "description" : "Which raid menu item do you want to farm?",
     "tierId" : "raid",
+    "varValueId" : null,
     "display" : "Menu Item",
     "value" : "0",
     "type" : "INT",
@@ -24,6 +25,7 @@
     "name" : "allow-expedition",
     "description" : "Control automating Supercite, D, C & B Expeditions",
     "tierId" : "enable",
+    "varValueId" : null,
     "display" : "Expedition",
     "value" : "1",
     "type" : "INT",
@@ -45,6 +47,7 @@
     "name" : "allow-arena",
     "description" : "Enable / Disable ARENA",
     "tierId" : "enable",
+    "varValueId" : null,
     "display" : "Arena",
     "value" : "1",
     "type" : "INT",
@@ -63,6 +66,7 @@
     "name" : "allow-farm",
     "description" : "Enable / Disable TMR farming",
     "tierId" : "enable",
+    "varValueId" : null,
     "display" : "Farm",
     "value" : "1",
     "type" : "INT",
@@ -81,6 +85,7 @@
     "name" : "arena-rule-multi_abilities",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Multiple use abilities",
     "value" : "1",
     "type" : "INT",
@@ -99,6 +104,7 @@
     "name" : "arena-rule-lightning",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Lightning",
     "value" : "1",
     "type" : "INT",
@@ -117,6 +123,7 @@
     "name" : "arena-rule-light",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Light",
     "value" : "1",
     "type" : "INT",
@@ -135,6 +142,7 @@
     "name" : "farm-party-index",
     "description" : "Which unit group do you TMR farm with?",
     "tierId" : "farm",
+    "varValueId" : null,
     "display" : "Farm Party",
     "value" : "0",
     "type" : "INT",
@@ -162,6 +170,7 @@
     "name" : "arena-rule-water",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Water",
     "value" : "1",
     "type" : "INT",
@@ -180,6 +189,7 @@
     "name" : "raid-party-index",
     "description" : "Which party, unit group do you RAID with?",
     "tierId" : "raid",
+    "varValueId" : null,
     "display" : "Party",
     "value" : "4",
     "type" : "INT",
@@ -207,6 +217,7 @@
     "name" : "arena-rule-earth",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Earth",
     "value" : "1",
     "type" : "INT",
@@ -225,6 +236,7 @@
     "name" : "arena-rule-fire",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Fire",
     "value" : "1",
     "type" : "INT",
@@ -240,9 +252,41 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "_route_from_arena",
+    "description" : "Where to go next after Arena is finished.  Default is EXPEDITION to check expeditions.",
+    "tierId" : "state-route",
+    "varValueId" : "ROUTES",
+    "display" : "After Arena",
+    "value" : "EXPEDITION",
+    "type" : "STRING",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Arena",
+      "value" : "ARENA"
+    }, {
+      "name" : "Expedition",
+      "value" : "EXPEDITION"
+    }, {
+      "name" : "Raid",
+      "value" : "RAID"
+    }, {
+      "name" : "Send Gifts",
+      "value" : "GIFT"
+    }, {
+      "name" : "TMR Farm",
+      "value" : "FARM"
+    }, {
+      "name" : "Wait",
+      "value" : "EXTRA"
+    } ]
+  }, {
     "name" : "arena-party-defense-index",
     "description" : null,
     "tierId" : "arena",
+    "varValueId" : null,
     "display" : "Defense Index",
     "value" : "0",
     "type" : "INT",
@@ -270,8 +314,9 @@
     "name" : "player-level",
     "description" : "What is your player level?  We need to to calculate your available energy reserve.",
     "tierId" : "farm",
+    "varValueId" : null,
     "display" : "Player Level",
-    "value" : "114",
+    "value" : "122",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -282,6 +327,7 @@
     "name" : "farm-timer",
     "description" : "When elapsed time is is greater then this value, farming will stop and another operation will take place.",
     "tierId" : "farm",
+    "varValueId" : null,
     "display" : "Transition Timer",
     "value" : "10800",
     "type" : "INT",
@@ -294,6 +340,7 @@
     "name" : "arena-rule-recovery",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Recovery",
     "value" : "1",
     "type" : "INT",
@@ -312,6 +359,7 @@
     "name" : "_route_from_send_gifts",
     "description" : "Where to go next after Sending Gifts is finished.  Default is EXTRA to wait a while.",
     "tierId" : "state-route",
+    "varValueId" : "ROUTES",
     "display" : "After Send Gifts",
     "value" : "EXTRA",
     "type" : "STRING",
@@ -319,11 +367,30 @@
     "displayType" : "STANDARD",
     "order" : 10,
     "skipSave" : false,
-    "values" : null
+    "values" : [ {
+      "name" : "Arena",
+      "value" : "ARENA"
+    }, {
+      "name" : "Expedition",
+      "value" : "EXPEDITION"
+    }, {
+      "name" : "Raid",
+      "value" : "RAID"
+    }, {
+      "name" : "Send Gifts",
+      "value" : "GIFT"
+    }, {
+      "name" : "TMR Farm",
+      "value" : "FARM"
+    }, {
+      "name" : "Wait",
+      "value" : "EXTRA"
+    } ]
   }, {
     "name" : "skip-time",
     "description" : null,
     "tierId" : "*",
+    "varValueId" : null,
     "display" : "Time Delay",
     "value" : "0",
     "type" : "INT",
@@ -345,9 +412,23 @@
       "value" : "600"
     } ]
   }, {
+    "name" : "_loops_max",
+    "description" : "The amount of time before the app shuts down due to inactivity",
+    "tierId" : "*",
+    "varValueId" : null,
+    "display" : "Max NoOp",
+    "value" : "900",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "SECONDS",
+    "order" : 5,
+    "skipSave" : false,
+    "values" : null
+  }, {
     "name" : "min-energy",
     "description" : "TMR farming will stop when this energy level is hit.",
     "tierId" : "farm",
+    "varValueId" : null,
     "display" : "Transition Energy",
     "value" : "0",
     "type" : "INT",
@@ -360,6 +441,7 @@
     "name" : "arena-rule-ice",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Ice",
     "value" : "1",
     "type" : "INT",
@@ -378,8 +460,9 @@
     "name" : "allow-raid",
     "description" : "Enable or disable Raiding",
     "tierId" : "enable",
+    "varValueId" : null,
     "display" : "Raid",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -393,9 +476,41 @@
       "value" : "0"
     } ]
   }, {
+    "name" : "_route_from_extra",
+    "description" : "Where to go next after Waiting is finished.  Default is FARM to TMR Farm.",
+    "tierId" : "state-route",
+    "varValueId" : "ROUTES",
+    "display" : "After Extra Wait",
+    "value" : "FARM",
+    "type" : "STRING",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Arena",
+      "value" : "ARENA"
+    }, {
+      "name" : "Expedition",
+      "value" : "EXPEDITION"
+    }, {
+      "name" : "Raid",
+      "value" : "RAID"
+    }, {
+      "name" : "Send Gifts",
+      "value" : "GIFT"
+    }, {
+      "name" : "TMR Farm",
+      "value" : "FARM"
+    }, {
+      "name" : "Wait",
+      "value" : "EXTRA"
+    } ]
+  }, {
     "name" : "_route_from_expedition",
     "description" : "Where to go next after Expeditions is finished.  Default is GIFT to send gifts.",
     "tierId" : "state-route",
+    "varValueId" : "ROUTES",
     "display" : "After Expedition",
     "value" : "GIFT",
     "type" : "STRING",
@@ -403,11 +518,30 @@
     "displayType" : "STANDARD",
     "order" : 10,
     "skipSave" : false,
-    "values" : null
+    "values" : [ {
+      "name" : "Arena",
+      "value" : "ARENA"
+    }, {
+      "name" : "Expedition",
+      "value" : "EXPEDITION"
+    }, {
+      "name" : "Raid",
+      "value" : "RAID"
+    }, {
+      "name" : "Send Gifts",
+      "value" : "GIFT"
+    }, {
+      "name" : "TMR Farm",
+      "value" : "FARM"
+    }, {
+      "name" : "Wait",
+      "value" : "EXTRA"
+    } ]
   }, {
     "name" : "os-recovery",
     "description" : "Which menu item do you wish to farm.  Typically the first item is a Exploration so you would want two or three.",
     "tierId" : "os",
+    "varValueId" : null,
     "display" : "Recovery",
     "value" : "1",
     "type" : "INT",
@@ -426,6 +560,7 @@
     "name" : "vortex-item",
     "description" : "Which vortex item is the raid?",
     "tierId" : "raid",
+    "varValueId" : null,
     "display" : "Vortex Item",
     "value" : "0",
     "type" : "INT",
@@ -447,6 +582,7 @@
     "name" : "extra_delay_minutes",
     "description" : null,
     "tierId" : "*",
+    "varValueId" : null,
     "display" : "Extra Delay",
     "value" : "0",
     "type" : "INT",
@@ -501,6 +637,7 @@
     "name" : "arena-rule-physical_combos",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Physical combos",
     "value" : "1",
     "type" : "INT",
@@ -516,9 +653,41 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "_route_from_tmr",
+    "description" : "Where to go next after TMR Farming is finished.  Default is RAID to Raid.",
+    "tierId" : "state-route",
+    "varValueId" : "ROUTES",
+    "display" : "After TMR Farming",
+    "value" : "RAID",
+    "type" : "STRING",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Arena",
+      "value" : "ARENA"
+    }, {
+      "name" : "Expedition",
+      "value" : "EXPEDITION"
+    }, {
+      "name" : "Raid",
+      "value" : "RAID"
+    }, {
+      "name" : "Send Gifts",
+      "value" : "GIFT"
+    }, {
+      "name" : "TMR Farm",
+      "value" : "FARM"
+    }, {
+      "name" : "Wait",
+      "value" : "EXTRA"
+    } ]
+  }, {
     "name" : "arena-rule-white_magic",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow White magic",
     "value" : "1",
     "type" : "INT",
@@ -534,9 +703,41 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "_route_from_raid",
+    "description" : "Where to go next after Raid is finished.  Default is ARENA to Arena.",
+    "tierId" : "state-route",
+    "varValueId" : "ROUTES",
+    "display" : "After Raid",
+    "value" : "ARENA",
+    "type" : "STRING",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Arena",
+      "value" : "ARENA"
+    }, {
+      "name" : "Expedition",
+      "value" : "EXPEDITION"
+    }, {
+      "name" : "Raid",
+      "value" : "RAID"
+    }, {
+      "name" : "Send Gifts",
+      "value" : "GIFT"
+    }, {
+      "name" : "TMR Farm",
+      "value" : "FARM"
+    }, {
+      "name" : "Wait",
+      "value" : "EXTRA"
+    } ]
+  }, {
     "name" : "arena-rule-black_magic",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Black Magic",
     "value" : "1",
     "type" : "INT",
@@ -555,6 +756,7 @@
     "name" : "arena-rule-dark",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Dark",
     "value" : "1",
     "type" : "INT",
@@ -573,6 +775,7 @@
     "name" : "arena-rule-magic_combos",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Magic combos",
     "value" : "1",
     "type" : "INT",
@@ -591,6 +794,7 @@
     "name" : "arena-rule-boosts",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Parameter boosts",
     "value" : "1",
     "type" : "INT",
@@ -609,6 +813,7 @@
     "name" : "arena-rule-status",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Status ailments",
     "value" : "1",
     "type" : "INT",
@@ -627,6 +832,7 @@
     "name" : "allow-gifts",
     "description" : "Enable / Disable Sending Friend Gifts",
     "tierId" : "enable",
+    "varValueId" : null,
     "display" : "Send Gifts",
     "value" : "1",
     "type" : "INT",
@@ -645,8 +851,9 @@
     "name" : "arena-party-index",
     "description" : null,
     "tierId" : "arena",
+    "varValueId" : null,
     "display" : "Battle Index",
-    "value" : "4",
+    "value" : "3",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -672,6 +879,7 @@
     "name" : "arena-rule-reductions",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Parameter reductions",
     "value" : "1",
     "type" : "INT",
@@ -690,6 +898,7 @@
     "name" : "raid-method",
     "description" : "Enable or disable Raiding",
     "tierId" : "raid",
+    "varValueId" : null,
     "display" : "Method",
     "value" : "2",
     "type" : "INT",
@@ -711,6 +920,7 @@
     "name" : "allow-ss",
     "description" : null,
     "tierId" : "*",
+    "varValueId" : null,
     "display" : "Enable Screen Saver",
     "value" : "0",
     "type" : "INT",
@@ -723,6 +933,7 @@
     "name" : "menu-item",
     "description" : "Which menu item do you wish to farm.  Typically the first item is a Exploration so you would want two or three.",
     "tierId" : "farm",
+    "varValueId" : null,
     "display" : "Menu Item",
     "value" : "2",
     "type" : "INT",
@@ -747,6 +958,7 @@
     "name" : "leave-farm",
     "description" : "Can farming leave to do other tasks when the timer or min-enegy is reached?",
     "tierId" : "farm",
+    "varValueId" : null,
     "display" : "Leave?",
     "value" : "1",
     "type" : "INT",
@@ -765,6 +977,7 @@
     "name" : "arena-rule-death",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Death",
     "value" : "1",
     "type" : "INT",
@@ -783,6 +996,7 @@
     "name" : "os-icon",
     "description" : "Which menu item do you wish to farm.  Typically the first item is a Exploration so you would want two or three.",
     "tierId" : "os",
+    "varValueId" : null,
     "display" : "App Icon",
     "value" : "a",
     "type" : "STRING",
@@ -804,6 +1018,7 @@
     "name" : "arena-rule-wind",
     "description" : null,
     "tierId" : "arena-rules",
+    "varValueId" : null,
     "display" : "Allow Wind",
     "value" : "1",
     "type" : "INT",

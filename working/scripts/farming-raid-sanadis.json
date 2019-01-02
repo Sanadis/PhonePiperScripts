@@ -6,8 +6,8 @@
 //  "nichol",
   "lilith",
   "malphasie",
-  "hyoh"
-//  "xon"
+  "hyoh",
+  "xon"
 ],
 "states": {
 
@@ -27,7 +27,7 @@
       "index_malphasie-break": {"value": "0", "type": "INT"},
       "index_lilith-imperil": {"value": "1", "type": "INT"},
       "index_lilith-chain": {"value": "2", "type": "INT"},
-      "index_malphasie-chain": {"value": "3", "type": "INT"},
+      "index_xon1": {"value": "3", "type": "INT"},
       "index_hyoh": {"value": "4", "type": "INT"},
       "turn": {"value": "1", "type": "INT"}
     },
@@ -69,47 +69,64 @@
         "type": "REPEAT"}
       ]
     }, {
+//
+//
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith-imperil}"} }, {
+//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith-imperil}"} }, {
+//          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-imperil}"} }
+//        ]
+//      },
+//      "actions": [{
+//        "type": "CALL", "value": "@lilith-midnight-imperil", "args": {"index": "${index_lilith-imperil}"}}, {
+//        "type": "REPEAT"}
+//      ]
+//
+//    }, {
+//
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith-chain}"} }, {
+//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith-chain}"} }, {
+//          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-chain}"} }
+//        ]
+//      },
+//      "actions": [{
+//        "type": "CALL", "value": "@lilith-midnight", "args": {"index": "${index_lilith-chain}"}}, {
+//        "type": "REPEAT"}
+//      ]
+//    }, {
+//
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon1}"} }, {
+//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_xon1}"} }, {
+//          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon1}"} }
+//        ]
+//      },
+//      "actions": [{
+//        "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_xon1}"}}, {
+//        "type": "REPEAT"}
+//      ]
+//    }, {
+
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith-imperil}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith-imperil}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-imperil}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_xon1}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_xon1}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon1}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@lilith-midnight-imperil", "args": {"index": "${index_lilith-imperil}"}}, {
+        "type": "CALL", "value": "@xon-waylay", "args": {"index": "${index_xon1}"}}, {
         "type": "REPEAT"}
       ]
 
-    }, {
-
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith-chain}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith-chain}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-chain}"} }
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@lilith-midnight", "args": {"index": "${index_lilith-chain}"}}, {
-        "type": "REPEAT"}
-      ]
-    }, {
-
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie-chain}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie-chain}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie-chain}"} }
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_malphasie-chain}"}}, {
-        "type": "REPEAT"}
-      ]
     }, {
 
       "condition": {
@@ -129,20 +146,21 @@
       "condition": {
         "is": "SCREEN", "value": "game-battle-repeat",
         "and": [{
-          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie-chain}"} }, {
-          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-chain}"} }, {
+//          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon1}"} }, {
+//          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-chain}"} }, {
           "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_hyoh}"} }
         ]
       },
       "actions": [{
         "type": "INFO", "value": "Attack ${turn}"}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie-break}"}}, {
-        "type": "WAIT", "value": "500"}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith-imperil}"}}, {
-        "type": "WAIT", "value": "100"}, {
         "type": "BATCH", "value": "start"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie-break}"}}, {
+//        "type": "WAIT", "value": "500"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith-imperil}"}}, {
+//        "type": "WAIT", "value": "100"}, {
+//        "type": "BATCH", "value": "start"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith-chain}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie-chain}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_xon1}"}}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_hyoh}"}}, {
         "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "2000"}, {

@@ -11,9 +11,10 @@
   "lilith",
 //  "freyvia",
 //  "terra",
-//  "rinoa",
+  "rinoa",
 //  "2B"
-  "sakura"
+//  "sakura"
+  "tiana"
 ],
 "states": {
 
@@ -43,22 +44,24 @@
       "_common-no_op"
     ],
     "variables": {
-       "index_lilith1": {"value": "0", "type": "INT"},
-       "index_sakura": {"value": "1", "type": "INT"},
-       "index_malphasie1": {"value": "2", "type": "INT"},
-       "index_malphasie2": {"value": "3", "type": "INT"},
-       "index_ayaka": {"value": "4", "type": "INT"},
+      "index_rinoa": {"value": "0", "type": "INT"},
+      "index_tiana": {"value": "1", "type": "INT"},
+      "index_malphasie1": {"value": "2", "type": "INT"},
+      "index_malphasie2": {"value": "3", "type": "INT"},
+      "index_ayaka": {"value": "4", "type": "INT"},
 
-       "stage": {"value": "0", "type": "INT"},
-       "arena_turn": {"value": "1", "type": "INT"}
+      "stage": {"value": "0", "type": "INT"},
+      "current_unit": {"value": "0", "type": "INT"},
+      "arena_turn": {"value": "1", "type": "INT"}
     },
     "statements": [{
 
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "LESS", "value": "5", "var": "stage"}, {
-          "is": "GREATER", "value": "20", "var": "_loops" }
+          "is": "LESS", "value": "5",
+          "var": "stage"}, {
+          "is": "GREATER", "value": "60", "var": "_loops" }
         ]
       },
       "actions": [{
@@ -83,8 +86,8 @@
         "type": "BATCH", "value": "start"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie1}"}}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie2}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith1}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_sakura}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_rinoa}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_tiana}"}}, {
         "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "5000"}, {
         "type": "SET", "var": "stage", "value": "0"}, {
@@ -159,15 +162,15 @@
         "value": "@isBattleReady",
         "and": [{
           "is": "EQUAL", "value": "1", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith1}"} }, {
-          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_lilith1}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
+          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_rinoa}"} }
         ]
       },
       "actions": [{
         "condition": {
-          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_lilith1}"}}, "type": "CONTINUE"}, {
+          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_rinoa}"}}, "type": "CONTINUE"}, {
         "type": "INFO", "value": "Trance Terra Use LB"}, {
-//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith1}"}}, {
+//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_rinoa}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -179,14 +182,14 @@
         "value": "@isBattleReady",
         "and": [{
           "is": "EQUAL", "value": "2", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_sakura}"} }, {
-          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_sakura}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_tiana}"} }, {
+          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_tiana}"} }
         ]
       },
       "actions": [{
         "condition": {
-          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_sakura}"}}, "type": "CONTINUE"}, {
-        "type": "INFO", "value": "2B Use LB"}, {
+          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_tiana}"}}, "type": "CONTINUE"}, {
+        "type": "INFO", "value": "Tiana Use LB"}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -210,8 +213,8 @@
           "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }
         ],
         "andOr": [{
-          "is": "SCREEN", "value": "battle-unit-${index_lilith1}_stop"}, {
-          "is": "SCREEN", "value": "battle-unit-${index_sakura}_stop"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_rinoa}_stop"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_tiana}_stop"}, {
           "is": "SCREEN", "value": "battle-unit-${index_malphasie1}_stop"}, {
           "is": "SCREEN", "value": "battle-unit-${index_malphasie2}_stop"}
         ]
@@ -228,50 +231,52 @@
     },{
 
       // Purify+
+      "condition": {
+        "is": "CALL", "value": "@isBattleReady",
+        "and": [{
+          "is": "EQUAL", "value": "0", "var":"stage"}, {
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_ayaka}"} }
+        ]
+      },
+      "actions": [{
+        "condition": {
+          "not": "CALL", "value": "@ayaka-purify+", "args": {"index": "${index_ayaka}"}}, "type": "CONTINUE"}, {
+        "type": "WAIT", "value": "500"}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
+        "type": "WAIT", "value": "1000"}, {
+        "type": "ADD", "value": "1", "var": "stage"}, {
+        "type": "CALL", "value": "@keepAlive"}, {
+        "type": "REPEAT"}
+      ]
+    }, {
+
+      // Dedication
 //      "condition": {
 //        "is": "CALL", "value": "@isBattleReady",
 //        "and": [{
 //          "is": "EQUAL", "value": "0", "var":"stage"}, {
 //          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
-//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }, {
-//          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_ayaka}"} }
+//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }
+//        ],
+//        "andOr": [{
+//          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }, {
+//          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_tiana}"} }, {
+//          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie1}"} }, {
+//          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie2}"} }
 //        ]
 //      },
 //      "actions": [{
-//        "condition": {
-//          "not": "CALL", "value": "@ayaka-purify+", "args": {"index": "${index_ayaka}"}}, "type": "CONTINUE"}, {
+//        "type": "CALL", "value": "@ayaka-dedication", "args": {"index": "${index_ayaka}"}}, {
+//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_tiana}"}}, {
+//        "type": "WAIT", "value": "1000"}, {
 //        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
 //        "type": "ADD", "value": "1", "var": "stage"}, {
 //        "type": "CALL", "value": "@keepAlive"}, {
 //        "type": "REPEAT"}
 //      ]
 //    }, {
-
-      // Dedication
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "EQUAL", "value": "0", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_ayaka}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }
-        ],
-        "andOr": [{
-          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith1}"} }, {
-          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_sakura}"} }, {
-          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie1}"} }, {
-          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie2}"} }
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@ayaka-dedication", "args": {"index": "${index_ayaka}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_sakura}"}}, {
-        "type": "WAIT", "value": "500"}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
-        "type": "ADD", "value": "1", "var": "stage"}, {
-        "type": "CALL", "value": "@keepAlive"}, {
-        "type": "REPEAT"}
-      ]
-    }, {
 
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
@@ -296,16 +301,36 @@
       // ------------------------------ 1 ------------------------------ //
       // --------------------------------------------------------------- //
 
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "is": "EQUAL", "value": "1", "var":"stage"}, {
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
+//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }
+//        ]
+//      },
+//      "actions": [{
+//        "type": "CALL", "value": "@lilith-dawnlash", "args": {"index": "${index_rinoa}"}}, {
+//        "type": "ADD", "value": "1", "var": "stage"}, {
+//        "type": "CALL", "value": "@keepAlive"}, {
+//        "type": "REPEAT"}
+//      ]
+//    }, {
+
+      // --------------------------------------------------------------- //
+      // ------------------------------ 1 ------------------------------ //
+      // --------------------------------------------------------------- //
+
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
           "is": "EQUAL", "value": "1", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith1}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith1}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@lilith-midnight", "args": {"index": "${index_lilith1}"}}, {
+        "type": "CALL", "value": "@rinoa-tornado-double", "args": {"index": "${index_rinoa}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -320,12 +345,12 @@
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
           "is": "EQUAL", "value": "2", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_sakura}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_sakura}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_tiana}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_tiana}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@sakura-rebel", "args": {"index": "${index_sakura}"}}, {
+        "type": "CALL", "value": "@tiana-quad-fire", "args": {"index": "${index_tiana}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -344,7 +369,7 @@
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_malphasie1}"}}, {
+        "type": "CALL", "value": "@malphasie-thousandwings", "args": {"index": "${index_malphasie1}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -364,7 +389,7 @@
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@malphasie-fiendishwinds", "args": {"index": "${index_malphasie2}"}}, {
+        "type": "CALL", "value": "@malphasie-thousandwings", "args": {"index": "${index_malphasie2}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -382,11 +407,12 @@
         "type": "INFO", "value": "Attacking (Turn: ${arena_turn})"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
         "type": "WAIT", "value": "1000"}, {
+        "type": "TAP", "value": "battle-unit_${index_tiana}"}, {
+        "type": "WAIT", "value": "500"}, {
         "type": "BATCH", "value": "start"}, {
-        "type": "TAP", "value": "battle-unit_${index_lilith1}"}, {
+        "type": "TAP", "value": "battle-unit_${index_rinoa}"}, {
         "type": "TAP", "value": "battle-unit_${index_malphasie1}"}, {
         "type": "TAP", "value": "battle-unit_${index_malphasie2}"}, {
-        "type": "TAP", "value": "battle-unit_${index_sakura}"}, {
         "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "5000"}, {
         "type": "SET", "value": "0", "var": "stage"}, {
@@ -405,7 +431,25 @@
         "type": "SET", "value": "0", "var": "stage"}, {
         "type": "REPEAT", "value": ""}
       ]
-    }]
+//    }, {
+//
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "not": "CALL", "value": "@isUnitReady", "args": {"index": "${stage}"},
+//          "or": [{
+//            "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${stage}"} }
+//          ]}
+//        ]
+//      },
+//      "actions": [{
+//        "type": "INFO", "value": "Unit ${stage} is not ready or is out of MP, skipping"}, {
+//        "type": "ADD", "value": "1", "var": "stage"}, {
+//        "type": "CALL", "value": "@keepAlive"}, {
+//        "type": "REPEAT", "value": ""}
+//      ]
+    }
+    ]
   },
 
   "arena-battle-fight": {
