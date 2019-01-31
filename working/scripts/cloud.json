@@ -1,0 +1,26 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Cloud", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@cloud-meteor": {
+      "name": "Cloud - Meteor",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Cloud - Meteor"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "3", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "0"}}
+        ]}
+      ]
+    }
+
+  }
+}

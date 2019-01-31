@@ -52,6 +52,26 @@
       ]
     },
 
+    "@rinoa-meteor-double": {
+      "name": "Rinoa - Meteor Double",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Rinoa - Meteor Double (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "5", "column": "1"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "0"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "0"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "0"}}
+        ]}
+      ]
+    },
+
     "@rinoa-angelwing": {
       "name": "Rinoa - Angel Wing",
       "includes": [],

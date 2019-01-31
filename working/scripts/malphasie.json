@@ -30,6 +30,18 @@
       ]
     },
 
+    "@malphasie-turbulence": {
+      "name": "Malphasie - Turbulence",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Malphasie - Turbulence (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "8", "column": "0"}}
+        ]}
+      ]
+    },
+
     "@malphasie-intenserancor": {
       "name": "Malphasie - Intense Rancor",
       "variables": {"index": {"value": "0","type": "INT"}},

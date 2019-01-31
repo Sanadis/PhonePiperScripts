@@ -11,10 +11,11 @@
   "lilith",
 //  "freyvia",
 //  "terra",
-  "rinoa",
+//  "rinoa"
 //  "2B"
 //  "sakura"
-  "tiana"
+//  "tiana"
+  "gladiolus"
 ],
 "states": {
 
@@ -44,8 +45,8 @@
       "_common-no_op"
     ],
     "variables": {
-      "index_rinoa": {"value": "0", "type": "INT"},
-      "index_tiana": {"value": "1", "type": "INT"},
+      "index_gladiolus": {"value": "0", "type": "INT"},
+      "index_lilith1": {"value": "1", "type": "INT"},
       "index_malphasie1": {"value": "2", "type": "INT"},
       "index_malphasie2": {"value": "3", "type": "INT"},
       "index_ayaka": {"value": "4", "type": "INT"},
@@ -86,8 +87,8 @@
         "type": "BATCH", "value": "start"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie1}"}}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie2}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_rinoa}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_tiana}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_gladiolus}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith1}"}}, {
         "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "5000"}, {
         "type": "SET", "var": "stage", "value": "0"}, {
@@ -162,15 +163,15 @@
         "value": "@isBattleReady",
         "and": [{
           "is": "EQUAL", "value": "1", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
-          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_rinoa}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_gladiolus}"} }, {
+          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_gladiolus}"} }
         ]
       },
       "actions": [{
         "condition": {
-          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_rinoa}"}}, "type": "CONTINUE"}, {
-        "type": "INFO", "value": "Trance Terra Use LB"}, {
-//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_rinoa}"}}, {
+          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_gladiolus}"}}, "type": "CONTINUE"}, {
+        "type": "INFO", "value": "Cloud Use LB"}, {
+//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_gladiolus}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -182,14 +183,14 @@
         "value": "@isBattleReady",
         "and": [{
           "is": "EQUAL", "value": "2", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_tiana}"} }, {
-          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_tiana}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith1}"} }, {
+          "is": "CALL", "value": "@isUnitLbReady", "args": {"index": "${index_lilith1}"} }
         ]
       },
       "actions": [{
         "condition": {
-          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_tiana}"}}, "type": "CONTINUE"}, {
-        "type": "INFO", "value": "Tiana Use LB"}, {
+          "not": "CALL", "value": "@readyUnitLbSafely", "args": {"index": "${index_lilith1}"}}, "type": "CONTINUE"}, {
+        "type": "INFO", "value": "Lilith Use LB"}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -213,8 +214,8 @@
           "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }
         ],
         "andOr": [{
-          "is": "SCREEN", "value": "battle-unit-${index_rinoa}_stop"}, {
-          "is": "SCREEN", "value": "battle-unit-${index_tiana}_stop"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_gladiolus}_stop"}, {
+          "is": "SCREEN", "value": "battle-unit-${index_lilith1}_stop"}, {
           "is": "SCREEN", "value": "battle-unit-${index_malphasie1}_stop"}, {
           "is": "SCREEN", "value": "battle-unit-${index_malphasie2}_stop"}
         ]
@@ -261,15 +262,15 @@
 //          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_ayaka}"} }
 //        ],
 //        "andOr": [{
-//          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }, {
-//          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_tiana}"} }, {
+//          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_gladiolus}"} }, {
+//          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith1}"} }, {
 //          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie1}"} }, {
 //          "not": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie2}"} }
 //        ]
 //      },
 //      "actions": [{
 //        "type": "CALL", "value": "@ayaka-dedication", "args": {"index": "${index_ayaka}"}}, {
-//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_tiana}"}}, {
+//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith1}"}}, {
 //        "type": "WAIT", "value": "1000"}, {
 //        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
 //        "type": "ADD", "value": "1", "var": "stage"}, {
@@ -305,12 +306,12 @@
 //        "is": "CALL", "value": "@isBattleReady",
 //        "and": [{
 //          "is": "EQUAL", "value": "1", "var":"stage"}, {
-//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
-//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_gladiolus}"} }, {
+//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_gladiolus}"} }
 //        ]
 //      },
 //      "actions": [{
-//        "type": "CALL", "value": "@lilith-dawnlash", "args": {"index": "${index_rinoa}"}}, {
+//        "type": "CALL", "value": "@lilith-dawnlash", "args": {"index": "${index_gladiolus}"}}, {
 //        "type": "ADD", "value": "1", "var": "stage"}, {
 //        "type": "CALL", "value": "@keepAlive"}, {
 //        "type": "REPEAT"}
@@ -325,12 +326,12 @@
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
           "is": "EQUAL", "value": "1", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_rinoa}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_rinoa}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_gladiolus}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_gladiolus}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@rinoa-tornado-double", "args": {"index": "${index_rinoa}"}}, {
+        "type": "CALL", "value": "@gladiolus-tempest", "args": {"index": "${index_gladiolus}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -345,12 +346,12 @@
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
           "is": "EQUAL", "value": "2", "var":"stage"}, {
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_tiana}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_tiana}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_lilith1}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_lilith1}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@tiana-quad-fire", "args": {"index": "${index_tiana}"}}, {
+        "type": "CALL", "value": "@lilith-midnight", "args": {"index": "${index_lilith1}"}}, {
         "type": "ADD", "value": "1", "var": "stage"}, {
         "type": "CALL", "value": "@keepAlive"}, {
         "type": "REPEAT"}
@@ -407,10 +408,10 @@
         "type": "INFO", "value": "Attacking (Turn: ${arena_turn})"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_ayaka}"}}, {
         "type": "WAIT", "value": "1000"}, {
-        "type": "TAP", "value": "battle-unit_${index_tiana}"}, {
+        "type": "TAP", "value": "battle-unit_${index_gladiolus}"}, {
         "type": "WAIT", "value": "500"}, {
         "type": "BATCH", "value": "start"}, {
-        "type": "TAP", "value": "battle-unit_${index_rinoa}"}, {
+        "type": "TAP", "value": "battle-unit_${index_lilith1}"}, {
         "type": "TAP", "value": "battle-unit_${index_malphasie1}"}, {
         "type": "TAP", "value": "battle-unit_${index_malphasie2}"}, {
         "type": "BATCH", "value": "end"}, {
