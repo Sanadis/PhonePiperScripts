@@ -28,7 +28,7 @@
     ],
     "statements": [{
       "condition": {
-        "var": "_loops", "is": "GREATER", "value": "15"
+        "var": "_loops", "is": "GREATER", "value": "20"
       },
       "actions": [{
         "type": "INFO", "value": "Script potentially stuck, stopping - Batch ${batch_number}"}, {
@@ -82,8 +82,9 @@
         "is" : "SCREEN","value" : "units-sell-confirm-popup"},
       "actions": [{
         "type": "TAP", "value": "units-sell-confirm_1"}, {
-        "type": "WAIT", "value": "450"}, {
+        "type": "WAIT", "value": "500"}, {
         "type": "TAP", "value": "units-sell-confirm_2"}, {
+        "type": "WAIT", "value": "500"}, {
         "type": "REPEAT"}
       ]
     }]
@@ -95,8 +96,8 @@
       "condition" : {
         "is" : "SCREEN","value" : "units-sell-popup_ok"},
       "actions": [{
-        "type": "SET", "var": "_loops", "value": "0"}, {
         "type": "TAP", "value": "units-sell-confirm_ok"}, {
+        "type": "SET", "var": "_loops", "value": "0"}, {
         "type": "REPEAT"}
       ]
     }]

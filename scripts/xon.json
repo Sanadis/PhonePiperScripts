@@ -14,7 +14,7 @@
         "actions": [{
           "type": "INFO", "value": "Xon - Waylay (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "0"}}
         ]}
       ]
     }

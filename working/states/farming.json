@@ -186,6 +186,25 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "device-type",
+    "description" : null,
+    "tierId" : "*",
+    "varValueId" : null,
+    "display" : "Device Type",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 99,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Emulated",
+      "value" : "1"
+    }, {
+      "name" : "Physical",
+      "value" : "0"
+    } ]
+  }, {
     "name" : "raid-party-index",
     "description" : "Which party, unit group do you RAID with?",
     "tierId" : "raid",
@@ -231,6 +250,25 @@
     }, {
       "name" : "Yes",
       "value" : "1"
+    } ]
+  }, {
+    "name" : "allow-share",
+    "description" : "Enable / Disable Tapping Friend - Share, to get the daily reward",
+    "tierId" : "enable",
+    "varValueId" : null,
+    "display" : "Share?",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Enabled",
+      "value" : "1"
+    }, {
+      "name" : "Disabled",
+      "value" : "0"
     } ]
   }, {
     "name" : "arena-rule-fire",
@@ -316,7 +354,7 @@
     "tierId" : "farm",
     "varValueId" : null,
     "display" : "Player Level",
-    "value" : "129",
+    "value" : "131",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -337,11 +375,81 @@
     "skipSave" : false,
     "values" : null
   }, {
+    "name" : "arena-opponent-choice",
+    "description" : null,
+    "tierId" : "arena",
+    "varValueId" : null,
+    "display" : "Opponent Selection",
+    "value" : "menu-arena-opponent_first",
+    "type" : "STRING",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 20,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "1st",
+      "value" : "menu-arena-opponent_first"
+    }, {
+      "name" : "2nd",
+      "value" : "menu-arena-opponent_second"
+    } ]
+  }, {
+    "name" : "energy-shift-y",
+    "description" : null,
+    "tierId" : "*",
+    "varValueId" : null,
+    "display" : "Energy - Y Shift",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 99,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "allow-expedition-cave",
+    "description" : "Control automating Moogle Cave Expeditions",
+    "tierId" : "enable",
+    "varValueId" : null,
+    "display" : "TMR Expedition",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Disabled",
+      "value" : "0"
+    }, {
+      "name" : "Enabled",
+      "value" : "1"
+    } ]
+  }, {
     "name" : "arena-rule-recovery",
     "description" : null,
     "tierId" : "arena-rules",
     "varValueId" : null,
     "display" : "Allow Recovery",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "No",
+      "value" : "0"
+    }, {
+      "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-rule-multi_hit_magical_combos",
+    "description" : null,
+    "tierId" : "arena-rules",
+    "varValueId" : null,
+    "display" : "Allow Multi-hit magical combos",
     "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
@@ -430,7 +538,7 @@
     "tierId" : "farm",
     "varValueId" : null,
     "display" : "Transition Energy",
-    "value" : "0",
+    "value" : "30",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -462,7 +570,7 @@
     "tierId" : "enable",
     "varValueId" : null,
     "display" : "Raid",
-    "value" : "1",
+    "value" : "0",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -900,7 +1008,7 @@
     "tierId" : "raid",
     "varValueId" : null,
     "display" : "Method",
-    "value" : "2",
+    "value" : "3",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -1013,6 +1121,9 @@
     }, {
       "name" : "C",
       "value" : "c"
+    }, {
+      "name" : "D",
+      "value" : "d"
     } ]
   }, {
     "name" : "arena-rule-wind",

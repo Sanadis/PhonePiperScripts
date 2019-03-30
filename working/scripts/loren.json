@@ -1,0 +1,55 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Loren", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@loren-tempest": {
+      "name": "Loren - Tempest Flash",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Loren - Tempest Flash (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "6", "column": "0"}}
+        ]}
+      ]
+    },
+
+    "@loren-manifesto": {
+      "name": "Loren - General's Manifesto",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Loren - General's Manifesto (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+//          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "6", "column": "1"}}, {
+          "type": "SWIPE_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "SWIPE_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "0"}}
+        ]}
+      ]
+    },
+
+    "@loren-fullbreak": {
+      "name": "Loren - Full Break+",
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Loren - Full Break+ (POS: ${index})"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}
+        ]}
+      ]
+    }
+
+  }
+}

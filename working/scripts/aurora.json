@@ -1,0 +1,39 @@
+//@formatter:off
+{
+  "vars": [{
+    "name": "unit_name", "value": "Cloud", "type": "STRING"}
+  ],
+  "imports": [],
+  "states": {
+
+    "@aurora-radiance": {
+      "name": "Aurora Fryevia - Radiance",
+      "includes": [],
+      "variables": {"index": {"value": "0","type": "INT"}},
+      "statements": [{
+        "actions": [{
+          "type": "INFO", "value": "Aurora Fryevia - Radiance"}, {
+          "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
+          "type": "SWIPE_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "SWIPE_UP", "value": "battle-skill-top-slider"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "REFRESH"}, {
+          "condition": {
+            "is": "SCREEN", "value": "battle-actions"},
+            "type": "CALL", "value": "@selectUnitAction", "args": {"row": "0", "column": "1"}}, {
+          "type": "WAIT", "value": "500"}
+        ]}
+      ]
+    }
+
+  }
+}

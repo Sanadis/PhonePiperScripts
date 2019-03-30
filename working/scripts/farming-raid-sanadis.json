@@ -7,6 +7,7 @@
   "lilith",
   "malphasie",
   "hyoh",
+  "aurora",
   "xon"
 ],
 "states": {
@@ -24,11 +25,12 @@
   "_raid_battle-auto": {
     "name": "Raid Battle - Auto (Override)",
     "variables": {
-      "index_malphasie-break": {"value": "0", "type": "INT"},
+      "index_loren-break": {"value": "0", "type": "INT"},
       "index_lilith-imperil": {"value": "1", "type": "INT"},
       "index_lilith-chain": {"value": "2", "type": "INT"},
       "index_xon1": {"value": "3", "type": "INT"},
-      "index_hyoh": {"value": "4", "type": "INT"},
+//      "index_hyoh": {"value": "4", "type": "INT"},
+      "index_aurora": {"value": "4", "type": "INT"},
       "turn": {"value": "1", "type": "INT"}
     },
     "statements": [{
@@ -56,19 +58,19 @@
 
     }, {
 
-      "condition": {
-        "is": "CALL", "value": "@isBattleReady",
-        "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_malphasie-break}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_malphasie-break}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_malphasie-break}"} }
-        ]
-      },
-      "actions": [{
-        "type": "CALL", "value": "@malphasie-feather", "args": {"index": "${index_malphasie-break}"}}, {
-        "type": "REPEAT"}
-      ]
-    }, {
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_loren-break}"} }, {
+//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_loren-break}"} }, {
+//          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_loren-break}"} }
+//        ]
+//      },
+//      "actions": [{
+//        "type": "CALL", "value": "@loren-manifesto", "args": {"index": "${index_loren-break}"}}, {
+//        "type": "REPEAT"}
+//      ]
+//    }, {
 //
 //
 //      "condition": {
@@ -129,16 +131,30 @@
 
     }, {
 
+//      "condition": {
+//        "is": "CALL", "value": "@isBattleReady",
+//        "and": [{
+//          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_hyoh}"} }, {
+//          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_hyoh}"} }, {
+//          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_hyoh}"} }
+//        ]
+//      },
+//      "actions": [{
+//        "type": "CALL", "value": "@hyoh-servant", "args": {"index": "${index_hyoh}"}}, {
+//        "type": "REPEAT"}
+//      ]
+//    }, {
+
       "condition": {
         "is": "CALL", "value": "@isBattleReady",
         "and": [{
-          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_hyoh}"} }, {
-          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_hyoh}"} }, {
-          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_hyoh}"} }
+          "is": "CALL", "value": "@isUnitReady", "args": {"index": "${index_aurora}"} }, {
+          "is": "CALL", "value": "@isUnitMpReady", "args": {"index": "${index_aurora}"} }, {
+          "not": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_aurora}"} }
         ]
       },
       "actions": [{
-        "type": "CALL", "value": "@hyoh-servant", "args": {"index": "${index_hyoh}"}}, {
+        "type": "CALL", "value": "@aurora-radiance", "args": {"index": "${index_aurora}"}}, {
         "type": "REPEAT"}
       ]
     }, {
@@ -148,20 +164,22 @@
         "and": [{
 //          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_xon1}"} }, {
 //          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_lilith-chain}"} }, {
-          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_hyoh}"} }
+//          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_hyoh}"} }, {
+          "is": "CALL", "value": "@isUnitActionReady", "args": {"index": "${index_aurora}"} }
         ]
       },
       "actions": [{
         "type": "INFO", "value": "Attack ${turn}"}, {
         "type": "BATCH", "value": "start"}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_malphasie-break}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_loren-break}"}}, {
 //        "type": "WAIT", "value": "500"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith-imperil}"}}, {
 //        "type": "WAIT", "value": "100"}, {
 //        "type": "BATCH", "value": "start"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_lilith-chain}"}}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_xon1}"}}, {
-        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_hyoh}"}}, {
+//        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_hyoh}"}}, {
+        "type": "CALL", "value": "@tapUnit", "args": {"index": "${index_aurora}"}}, {
         "type": "BATCH", "value": "end"}, {
         "type": "WAIT", "value": "2000"}, {
         "type": "CALL", "value": "@tapUnit", "args": {"index": "5"}}, {

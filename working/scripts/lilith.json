@@ -14,8 +14,14 @@
         "actions": [{
           "type": "INFO", "value": "Lilith - Serpente Kiss of Midnight (POS: ${index})"}, {
           "type": "CALL", "value": "@showUnitActions", "args": {"index": "${index}"}}, {
+//          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "1"}}, {
+//          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "8", "column": "1"}}, {
+//          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}
           "type": "CALL", "value": "@selectUnitAction", "args": {"row": "1", "column": "1"}}, {
-          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "8", "column": "1"}}, {
+          "type": "SWIPE_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "SWIPE_UP", "value": "battle-skill-top-slider", "count": "2"}, {
+          "type": "WAIT", "value": "500"}, {
+          "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}, {
           "type": "CALL", "value": "@selectUnitAction", "args": {"row": "2", "column": "1"}}
         ]}
       ]
