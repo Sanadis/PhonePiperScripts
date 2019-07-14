@@ -570,7 +570,7 @@
     "tierId" : "enable",
     "varValueId" : null,
     "display" : "Raid",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
