@@ -85,6 +85,24 @@
       }]
     },
 
+    "_popup_package-scroll": {
+      "name": "Popup - Package (Scrolls)",
+      "statements": [{
+        "condition": {
+          "is": "SCREEN", "value": "popup_package-scroll"
+        },
+        "actions": [{
+          "type": "INFO", "value": "Package Popup (Scroll) Detected"}, {
+          "type": "EVENT", "value": "back"}, {
+          "type": "WAIT", "value": "1000"}, {
+          "type": "TAP", "value": "popup_package-scroll_close"}, {
+          "type": "WAIT", "value": "2000"}, {
+          "type": "CALL", "value": "@keepAlive"}, {
+          "type": "REPEAT", "value": ""}
+        ]
+      }]
+    },
+
     "_popup_gift-box": {
       "name": "Popup - Gift Box",
       "statements": [{
