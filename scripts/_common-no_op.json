@@ -11,7 +11,7 @@
   "states": {
 
     "main": {
-      "name": "! Main Template !",
+      "name": "! Main !",
       "includes": [
         "_common-no_op"
       ],
