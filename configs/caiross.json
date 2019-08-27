@@ -1,0 +1,13 @@
+{
+  "title" : "BlueStacks",
+  "stateName" : "caiross",
+  "device" : "BlueStacks-720",
+  "views" : [ "1280x720" ],
+  "scripts" : [ "caiross" ],
+  "attributes" : {
+    "device-adb" : "C:\\Program Files\\BlueStacks\\HD-Adb.exe",
+    "device-direct" : "model:ONEPLUS_A3010",
+    "device-wifi" : "true",
+    "device-helper" : "false"
+  }
+}
