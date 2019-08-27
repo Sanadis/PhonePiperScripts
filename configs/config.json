@@ -1,0 +1,14 @@
+{
+  "title" : "Config",
+  "stateName" : "config",
+  "device" : "MEmu7-1080",
+  "views" : [ "1080x1920", "1080x1920_sanadis" ],
+  "scripts" : [ "sell" ],
+  "attributes" : {
+    "device-ip" : "127.0.0.1",
+    "device-adbPort" : "21523",
+    "device-helperPort" : "21525",
+    "device-direct" : "-s model:Z982 shell",
+    "device-wifi" : "false"
+  }
+}
