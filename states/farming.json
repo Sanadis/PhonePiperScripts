@@ -49,7 +49,7 @@
     "tierId" : "enable",
     "varValueId" : null,
     "display" : "Arena",
-    "value" : "0",
+    "value" : "1",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -80,6 +80,25 @@
     }, {
       "name" : "Disabled",
       "value" : "0"
+    } ]
+  }, {
+    "name" : "arena-healer_4-purp-col",
+    "description" : "The column location of the skill, 0 for left, 1 for right",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Purify+ - Ability Column",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 12,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Left",
+      "value" : "0"
+    }, {
+      "name" : "Right",
+      "value" : "1"
     } ]
   }, {
     "name" : "arena-rule-multi_abilities",
@@ -120,6 +139,38 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "arena-healer_4-elys-row",
+    "description" : "The row location of the skill, The first row is 0",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Elysium - Ability Row",
+    "value" : "9",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 11,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "arena-healer_4-dedi-col",
+    "description" : "The column location of the skill, 0 for left, 1 for right",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Dedication - Ability Column",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Left",
+      "value" : "0"
+    }, {
+      "name" : "Right",
+      "value" : "1"
+    } ]
+  }, {
     "name" : "arena-rule-light",
     "description" : null,
     "tierId" : "arena-rules",
@@ -136,6 +187,25 @@
       "value" : "0"
     }, {
       "name" : "Yes",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-healer_4-stod-col",
+    "description" : "The column location of the skill, 0 for left, 1 for right",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Stop Detatch - Ability Column",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 13,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Left",
+      "value" : "0"
+    }, {
+      "name" : "Right",
       "value" : "1"
     } ]
   }, {
@@ -166,6 +236,19 @@
       "name" : "Five (Right)",
       "value" : "4"
     } ]
+  }, {
+    "name" : "arena-healer_4-resp-row",
+    "description" : "The row location of the skill, The first row is 0",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Resurgence+ - Ability Row",
+    "value" : "9",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 14,
+    "skipSave" : false,
+    "values" : null
   }, {
     "name" : "arena-rule-water",
     "description" : null,
@@ -495,6 +578,44 @@
       "value" : "EXTRA"
     } ]
   }, {
+    "name" : "arena-healer_4-puri-col",
+    "description" : "The column location of the skill, 0 for left, 1 for right",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Purify - Ability Column",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 16,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Left",
+      "value" : "0"
+    }, {
+      "name" : "Right",
+      "value" : "1"
+    } ]
+  }, {
+    "name" : "arena-orbs",
+    "description" : null,
+    "tierId" : "arena",
+    "varValueId" : null,
+    "display" : "Orbs",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 0,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Need One",
+      "value" : "1"
+    }, {
+      "name" : "Need Two",
+      "value" : "2"
+    } ]
+  }, {
     "name" : "skip-time",
     "description" : null,
     "tierId" : "*",
@@ -545,6 +666,38 @@
     "order" : 20,
     "skipSave" : false,
     "values" : null
+  }, {
+    "name" : "arena-healer_4-curj-row",
+    "description" : "The row location of the skill, The first row is 0",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Curaja - Ability Row",
+    "value" : "4",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 15,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "arena-healer_4-resp-col",
+    "description" : "The column location of the skill, 0 for left, 1 for right",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Resurgence+ - Ability Column",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 14,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Left",
+      "value" : "0"
+    }, {
+      "name" : "Right",
+      "value" : "1"
+    } ]
   }, {
     "name" : "arena-rule-ice",
     "description" : null,
@@ -664,6 +817,19 @@
       "name" : "Recover",
       "value" : "1"
     } ]
+  }, {
+    "name" : "arena-healer_4-puri-row",
+    "description" : "The row location of the skill, The first row is 0",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Purify - Ability Row",
+    "value" : "8",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 16,
+    "skipSave" : false,
+    "values" : null
   }, {
     "name" : "vortex-item",
     "description" : "Which vortex item is the raid?",
@@ -899,6 +1065,51 @@
       "value" : "1"
     } ]
   }, {
+    "name" : "allow-soft_back",
+    "description" : null,
+    "tierId" : "*",
+    "varValueId" : null,
+    "display" : "Soft Back Support?",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "BOOLEAN",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "arena-healer_4-stod-row",
+    "description" : "The row location of the skill, The first row is 0",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Stop Detatch - Ability Row",
+    "value" : "6",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 13,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "arena-healer_4-curj-col",
+    "description" : "The column location of the skill, 0 for left, 1 for right",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Curaja - Ability Column",
+    "value" : "1",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 15,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Left",
+      "value" : "0"
+    }, {
+      "name" : "Right",
+      "value" : "1"
+    } ]
+  }, {
     "name" : "arena-rule-boosts",
     "description" : null,
     "tierId" : "arena-rules",
@@ -917,6 +1128,19 @@
       "name" : "Yes",
       "value" : "1"
     } ]
+  }, {
+    "name" : "arena-healer_4-dedi-row",
+    "description" : "The row location of the skill, The first row is 0",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Dedication - Ability Row",
+    "value" : "7",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 10,
+    "skipSave" : false,
+    "values" : null
   }, {
     "name" : "arena-rule-status",
     "description" : null,
@@ -942,7 +1166,7 @@
     "tierId" : "enable",
     "varValueId" : null,
     "display" : "Send Gifts",
-    "value" : "1",
+    "value" : "0",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "STANDARD",
@@ -1008,7 +1232,7 @@
     "tierId" : "raid",
     "varValueId" : null,
     "display" : "Method",
-    "value" : "3",
+    "value" : "0",
     "type" : "INT",
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
@@ -1023,6 +1247,9 @@
     }, {
       "name" : "Vortex Item",
       "value" : "1"
+    }, {
+      "name" : "Event/Banner Link",
+      "value" : "0"
     } ]
   }, {
     "name" : "allow-ss",
@@ -1035,6 +1262,19 @@
     "modify" : "EDITABLE",
     "displayType" : "BOOLEAN",
     "order" : 10,
+    "skipSave" : false,
+    "values" : null
+  }, {
+    "name" : "arena-healer_4-purp-row",
+    "description" : "The row location of the skill, The first row is 0",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Purify+ - Ability Row",
+    "value" : "10",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 12,
     "skipSave" : false,
     "values" : null
   }, {
@@ -1080,6 +1320,25 @@
     }, {
       "name" : "Stay",
       "value" : "0"
+    } ]
+  }, {
+    "name" : "arena-healer_4-elys-col",
+    "description" : "The column location of the skill, 0 for left, 1 for right",
+    "tierId" : "arena-healer-ayaka-4",
+    "varValueId" : null,
+    "display" : "Elysium - Ability Column",
+    "value" : "0",
+    "type" : "INT",
+    "modify" : "EDITABLE",
+    "displayType" : "STANDARD",
+    "order" : 11,
+    "skipSave" : false,
+    "values" : [ {
+      "name" : "Left",
+      "value" : "0"
+    }, {
+      "name" : "Right",
+      "value" : "1"
     } ]
   }, {
     "name" : "arena-rule-death",

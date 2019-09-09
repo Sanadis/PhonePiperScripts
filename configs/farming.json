@@ -1,9 +1,10 @@
 {
   "title" : "FFBE",
+  "configName" : "farming",
   "stateName" : "farming",
   "device" : "MEmu7-1080",
   "views" : [ "1080x1920", "1080x1920_sanadis" ],
-  "scripts" : [ "farming", "fuse", "raid-summon", "sell", "farming-arena-sanadis", "farming-raid-sanadis" ],
+  "scripts" : [ "farming", "fuse", "raid-summon", "farming-raid-sanadis", "farming-arena-base", "farming-arena-sanadis", "farming-arena-healer-ayaka" ],
   "attributes" : {
     "device-ip" : "127.0.0.1",
     "device-adbPort" : "21523",
@@ -11,6 +12,6 @@
     "device-adb" : "D:\\Media\\Development\\Phone\\ADB\\platform-tools\\adb.exe",
     "device-direct" : "model:Z982",
     "device-wifi" : "false",
-    "device-helper" : "true"
+    "device-helper" : "false"
   }
 }
